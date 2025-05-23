@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto Luce - Materiale Elettrico Colorato e Moderno</title>
+    <meta name="description" content="Soluzioni elettriche ed elettroniche con design moderno e colorato per professionisti e privati">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #037dd3;
+            --secondary: #ff6b6b;
+            --accent: #ffbe00;
+            --dark: #2a2a2a;
+            --light: #f7f7f7;
+            --gradient: linear-gradient(135deg, var(--primary), var(--accent));
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --radius: 20px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Proposals Navigation */
+        .proposals-nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 2000;
+            background: white;
+            border-radius: var(--radius);
+            padding: 15px 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .proposals-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .home-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .home-btn:hover {
+            background: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .proposals-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .proposals-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .proposal-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-weight: 600;
+            background: #f0f0f0;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .proposal-link.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .proposal-link:hover:not(.active) {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Header */
+        .colorful-header {
+            background: white;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-colorful {
+            height: 50px;
+            transition: var(--transition);
+        }
+
+        .logo-colorful:hover {
+            transform: rotate(-5deg) scale(1.05);
+        }
+
+        .nav-colorful {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-colorful a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-colorful a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-colorful a:hover::after {
+            width: 100%;
+        }
+
+        .nav-colorful a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .colorful-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 40px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            z-index: -1;
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-text {
+            color: white;
+        }
+
+        .hero-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .colorful-btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .primary-btn {
+            background: white;
+            color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .secondary-btn:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        /* Features */
+        .colorful-features {
+            padding: 100px 40px;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 0;
+            background: var(--gradient);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover::before {
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .feature-title {
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* CTA */
+        .colorful-cta {
+            padding: 100px 40px;
+            background: var(--light);
+            text-align: center;
+        }
+
+        .cta-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: var(--gradient);
+        }
+
+        /* Footer */
+        .colorful-footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 40px 30px;
+        }
+
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-colorful {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Proposals Navigation -->
+    <div class="proposals-nav">
+        <div class="proposals-container">
+            <a href="index.html" class="home-btn">
+                <i class="fas fa-home"></i>
+            </a>
+            <span class="proposals-label">Proposte:</span>
+            <nav class="proposals-links">
+                <a href="proposal1.html" class="proposal-link">1</a>
+                <a href="proposal2.html" class="proposal-link">2</a>
+                <a href="proposal3.html" class="proposal-link">3</a>
+                <a href="proposal4.html" class="proposal-link active">4</a>
+                <a href="proposal5.html" class="proposal-link">5</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="colorful-header">
+        <div class="header-container">
+            <a href="#">
+                <img src="images_index/logo_index.jpg" alt="Punto Luce" class="logo-colorful">
+            </a>
+            <nav class="nav-colorful">
+                <a href="#home">Home</a>
+                <a href="#servizi">Servizi</a>
+                <a href="#prodotti">Prodotti</a>
+                <a href="#contatti">Contatti</a>
+                <a href="https://shop.puntoluce.net/">Shop</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="colorful-hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">PUNTO LUCE</h1>
+                <p class="hero-subtitle">Dove il buio non è mai di casa</p>
+                <p class="hero-subtitle">
+                    Soluzioni elettriche ed elettroniche con design moderno e colorato 
+                    per professionisti e privati.
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://shop.puntoluce.net/" class="colorful-btn primary-btn">
+                        <i class="fas fa-shopping-cart"></i> Negozio Online
+                    </a>
+                    <a href="#contatti" class="colorful-btn secondary-btn">
+                        <i class="fas fa-phone"></i> Contattaci
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images_index/index1.jpg" alt="Punto Luce">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="colorful-features" id="servizi">
+        <div class="section-header">
+            <p class="section-subtitle">PERCHÉ SCEGLIERCI</p>
+            <h2 class="section-title">I Nostri Servizi</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3 class="feature-title">Materiale Elettrico</h3>
+                <p>Componenti di alta qualità per impianti civili e industriali, con certificazioni di sicurezza.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="feature-title">Sistemi Antifurto</h3>
+                <p>Soluzioni integrate per la sicurezza della tua casa o azienda, con tecnologia avanzata.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3 class="feature-title">Domotica</h3>
+                <p>Automazione residenziale per comfort, sicurezza e risparmio energetico intelligente.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="colorful-cta">
+        <div class="cta-box">
+            <h2 class="section-title">Pronto a illuminare la tua vita?</h2>
+            <p style="margin-bottom: 30px;">Scopri la nostra gamma completa di prodotti e servizi.</p>
+            <a href="https://shop.puntoluce.net/" class="colorful-btn primary-btn" style="margin-top: 20px;">
+                <i class="fas fa-rocket"></i> Inizia Ora
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="colorful-footer">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="images_index/logo_index.jpg" alt="Punto Luce" style="height: 50px; filter: brightness(0) invert(1);">
+                </div>
+                <p style="margin-bottom: 20px;">Distributore specializzato in materiale elettrico ed elettronico di alta qualità.</p>
+                <p>© 2025 Punto Luce. Tutti i diritti riservati.</p>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Link Veloci</h3>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#servizi">Servizi</a>
+                    <a href="#prodotti">Prodotti</a>
+                    <a href="#contatti">Contatti</a>
+                    <a href="https://shop.puntoluce.net/">Negozio Online</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Contatti</h3>
+                <div class="footer-links">
+                    <a href="tel:+390000000000">+39 000 000 0000</a>
+                    <a href="mailto:info@puntoluce.net">info@puntoluce.net</a>
+                    <a href="#">Via dell'Elettricità, 123 - Bologna</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Punto Luce è un sito di WEB-E Srl - P.IVA 04108481203</p>
+        </div>
+    </footer>
+</body>
+</html>

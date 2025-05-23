@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto Luce - Eccellenza nel Materiale Elettrico</title>
+    <meta name="description" content="Distributore specializzato in materiale elettrico ed elettronico di alta qualità per professionisti ed aziende">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --gold: #c5a47e;
+            --dark-blue: #0a1a2e;
+            --light-gray: #f8f8f8;
+            --text-dark: #333;
+            --text-light: #777;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            background: var(--light-gray);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Proposals Navigation */
+        .proposals-nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 2000;
+            background: white;
+            border-radius: 30px;
+            padding: 15px 20px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .proposals-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+        }
+
+        .home-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--dark-blue);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .home-btn:hover {
+            background: var(--gold);
+            transform: scale(1.1);
+        }
+
+        .proposals-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .proposals-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .proposal-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-weight: 600;
+            background: #f0f0f0;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .proposal-link.active {
+            background: var(--dark-blue);
+            color: white;
+        }
+
+        .proposal-link:hover:not(.active) {
+            background: var(--gold);
+            color: white;
+        }
+
+        /* Header */
+        .luxury-header {
+            background: white;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-luxury {
+            height: 60px;
+            transition: var(--transition);
+        }
+
+        .logo-luxury:hover {
+            opacity: 0.9;
+        }
+
+        .nav-luxury {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-luxury a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 400;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+
+        .nav-luxury a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        .nav-luxury a:hover::after {
+            width: 100%;
+        }
+
+        .nav-luxury a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .luxury-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 40px 80px;
+            position: relative;
+            background: url('images_index/index1.jpg') no-repeat center center;
+            background-size: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 26, 46, 0.7);
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            color: white;
+            padding-top: 100px;
+        }
+
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .luxury-btn {
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .primary-btn {
+            background: var(--gold);
+            color: white;
+        }
+
+        .primary-btn:hover {
+            background: transparent;
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .secondary-btn:hover {
+            background: white;
+            color: var(--dark-blue);
+            transform: translateY(-3px);
+        }
+
+        /* Features */
+        .luxury-features {
+            padding: 100px 40px;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 40px 30px;
+            transition: var(--transition);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--light-gray);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            background: var(--gold);
+            color: white;
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        .feature-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-blue);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 40px;
+            background: var(--light-gray);
+        }
+
+        /* CTA */
+        .luxury-cta {
+            padding: 120px 40px;
+            background: var(--dark-blue);
+            color: white;
+            text-align: center;
+        }
+
+        /* Footer */
+        .luxury-footer {
+            background: var(--dark-blue);
+            color: white;
+            padding: 80px 40px 30px;
+        }
+
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-luxury {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Proposals Navigation -->
+    <div class="proposals-nav">
+        <div class="proposals-container">
+            <a href="index.html" class="home-btn">
+                <i class="fas fa-home"></i>
+            </a>
+            <span class="proposals-label">Proposte:</span>
+            <nav class="proposals-links">
+                <a href="proposal1.html" class="proposal-link">1</a>
+                <a href="proposal2.html" class="proposal-link">2</a>
+                <a href="proposal3.html" class="proposal-link active">3</a>
+                <a href="proposal4.html" class="proposal-link">4</a>
+                <a href="proposal5.html" class="proposal-link">5</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="luxury-header">
+        <div class="header-container">
+            <a href="#">
+                <img src="images_index/logo_index.jpg" alt="Punto Luce" class="logo-luxury">
+            </a>
+            <nav class="nav-luxury">
+                <a href="#home">Home</a>
+                <a href="#servizi">Servizi</a>
+                <a href="#prodotti">Prodotti</a>
+                <a href="#contatti">Contatti</a>
+                <a href="https://shop.puntoluce.net/">Shop</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="luxury-hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-subtitle">DOVE IL BUIO NON È MAI DI CASA</p>
+            <h1 class="hero-title">Eccellenza nel Materiale Elettrico</h1>
+            <p class="hero-description">
+                Da oltre 20 anni forniamo prodotti di alta qualità e servizi professionali 
+                nel settore elettrico ed elettronico per clienti esigenti.
+            </p>
+            <div class="hero-buttons">
+                <a href="https://shop.puntoluce.net/" class="luxury-btn primary-btn">Negozio Online</a>
+                <a href="#contatti" class="luxury-btn secondary-btn">Contattaci</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="luxury-features" id="servizi">
+        <div class="section-header">
+            <p class="section-subtitle">I NOSTRI SERVIZI</p>
+            <h2 class="section-title">Eccellenza Tecnica</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt fa-2x"></i>
+                </div>
+                <h3 class="feature-title">Materiale Elettrico</h3>
+                <p>Componenti di alta qualità per impianti civili e industriali, con certificazioni di sicurezza.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt fa-2x"></i>
+                </div>
+                <h3 class="feature-title">Sistemi Antifurto</h3>
+                <p>Soluzioni integrate per la sicurezza della tua casa o azienda, con tecnologia avanzata.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-home fa-2x"></i>
+                </div>
+                <h3 class="feature-title">Domotica</h3>
+                <p>Automazione residenziale per comfort, sicurezza e risparmio energetico intelligente.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="luxury-cta">
+        <div class="section-header">
+            <p class="section-subtitle">PRONTI A INIZIARE?</p>
+            <h2 class="section-title" style="color: white;">Trasforma la tua casa o azienda</h2>
+            <a href="https://shop.puntoluce.net/" class="luxury-btn primary-btn" style="margin-top: 30px;">Scopri i Prodotti</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="luxury-footer">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="images_index/logo_index.jpg" alt="Punto Luce" style="height: 60px; filter: brightness(0) invert(1);">
+                </div>
+                <p style="margin-bottom: 20px;">Distributore specializzato in materiale elettrico ed elettronico di alta qualità.</p>
+                <p>© 2025 Punto Luce. Tutti i diritti riservati.</p>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Link Veloci</h3>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#servizi">Servizi</a>
+                    <a href="#prodotti">Prodotti</a>
+                    <a href="#contatti">Contatti</a>
+                    <a href="https://shop.puntoluce.net/">Negozio Online</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Contatti</h3>
+                <div class="footer-links">
+                    <a href="tel:+390000000000">+39 000 000 0000</a>
+                    <a href="mailto:info@puntoluce.net">info@puntoluce.net</a>
+                    <a href="#">Via dell'Elettricità, 123 - Bologna</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Punto Luce è un sito di WEB-E Srl - P.IVA 04108481203</p>
+        </div>
+    </footer>
+</body>
+</html>

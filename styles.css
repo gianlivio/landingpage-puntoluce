@@ -1,0 +1,148 @@
+body {
+	margin: 0px;
+}
+
+html, body {
+	height:100%;
+	width:100%;
+	display:block;
+}
+
+.f_index {
+  background: url("images_index/f_index.jpg") repeat-x scroll left 332px rgba(0, 0, 0, 0);
+  margin-top: -400px;
+  position: relative;
+  top: 50%;
+}
+.testo {
+  color: #414151;
+  font-family: Georgia,"Times New Roman",Times,serif;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 20px;
+}
+@font-face {
+font-family: 'dinengschriftstd';
+src: url('fonts/dinengschriftstd-webfont.eot');
+src: local('☺ '), url('fonts/dinengschriftstd-webfont.woff') format('woff'), url('fonts/dinengschriftstd-webfont.ttf') format('truetype'), url('fonts/dinengschriftstd.svg#webfont') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+.din {
+	font-family: 'dinengschriftstd';
+	font-style: normal;
+	font-weight: normal !important;
+	font-size:24px;
+	color:#fff;
+}
+.din a {
+	color:#fff;
+	text-decoration:none;
+}
+.din a:hover {
+	color:#000;
+	text-decoration:none;
+}
+
+
+.footer {
+	color:#1F1F2E;
+	border-top:1px solid #B9B9C8;
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;	
+}
+
+.container-mobile{
+  display:none;
+}
+
+.bg-mobile{
+  background: url(images_index/f_index.jpg) repeat-x scroll left rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 79px;
+}
+
+.wrapper-flexed{
+    display: flex;
+    height: 79px;
+    width: 320px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.negozio{
+  flex:0 0 50%;
+  display:flex;
+  justify-content: center;
+}
+
+.cont-logo-mobile{
+    display:flex;
+    justify-content: center;
+}
+
+.negozio a, .blog a{
+    font-family: 'dinengschriftstd';
+    font-style: normal;
+    font-weight: normal !important;
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.blog{
+  flex:0 0 50%;
+  display:flex;
+  justify-content: center;
+}
+
+.negozio a:hover, .blog a:hover{
+    color: #000;
+}
+
+.testo-mobile{
+    color: #414151;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 15px;
+    font-style: italic;
+    line-height: 20px;
+    text-align:center;
+    padding:1em;
+}
+
+.footer-mobile{
+    color:#1F1F2E;
+	border-top:1px solid #B9B9C8;
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;
+    text-align:center;
+    width:90%;
+}
+
+@media screen and (max-width: 996px) {
+  .wrapper.f_index{
+    display:none;
+  }
+
+  .testo-mobile{
+    padding:1em 10em;
+}
+
+  .container-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+}
+
+@media screen and (max-width: 650px) {
+    
+    .testo-mobile{
+      padding:1em;
+  }
+}

@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto Luce - Innovazione Elettrica del Futuro</title>
+    <meta name="description" content="Punto Luce: tecnologia avanzata e soluzioni elettriche innovative per il futuro della tua casa e azienda">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        /* Futuristic Color Scheme */
+        :root {
+            --neon-blue: #00d4ff;
+            --deep-blue: #001428;
+            --electric-purple: #7209b7;
+            --cyber-yellow: #ffd60a;
+            --tech-gray: #0a0a0a;
+            --grid-color: rgba(0, 212, 255, 0.1);
+            --text-light: #e0e0e0;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glow-intensity: 0 0 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: var(--tech-gray);
+            color: var(--text-light);
+            overflow-x: hidden;
+            cursor: crosshair;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--neon-blue);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Animated Background Grid */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: grid-move 10s linear infinite;
+            z-index: -2;
+        }
+
+        @keyframes grid-move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Cyber Particles */
+        .cyber-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .cyber-particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--neon-blue);
+            box-shadow: var(--glow-intensity) var(--neon-blue);
+            animation: cyber-float 20s infinite linear;
+        }
+
+        @keyframes cyber-float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Proposals Navigation */
+        .proposals-nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 2000;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--neon-blue);
+            border-radius: 15px;
+            padding: 15px 20px;
+            box-shadow: var(--glow-intensity) var(--neon-blue);
+            transition: all 0.3s ease;
+        }
+
+        .proposals-nav:hover {
+            background: rgba(0, 212, 255, 0.1);
+            transform: scale(1.02);
+        }
+
+        .proposals-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+        }
+
+        .home-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--electric-purple);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1.1rem;
+            box-shadow: var(--glow-intensity) var(--electric-purple);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .home-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--cyber-yellow);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
+        }
+
+        .home-btn:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+
+        .home-btn:hover {
+            transform: scale(1.1) rotate(-10deg);
+            box-shadow: var(--glow-intensity) var(--cyber-yellow);
+        }
+
+        .home-btn:hover i {
+            position: relative;
+            z-index: 1;
+            color: var(--tech-gray);
+        }
+
+        .proposals-container::after {
+            content: '';
+            position: absolute;
+            left: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 25px;
+            width: 1px;
+            background: var(--neon-blue);
+            box-shadow: 0 0 5px var(--neon-blue);
+        }
+
+        .proposals-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--neon-blue);
+            white-space: nowrap;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .proposals-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .proposal-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .proposal-link:not(.active) {
+            background: var(--glass-bg);
+            color: var(--text-light);
+            border-color: var(--neon-blue);
+        }
+
+        .proposal-link:not(.active):hover {
+            background: var(--neon-blue);
+            color: var(--tech-gray);
+            transform: scale(1.1);
+            box-shadow: var(--glow-intensity) var(--neon-blue);
+        }
+
+        .proposal-link.active {
+            background: var(--neon-blue);
+            color: var(--tech-gray);
+            box-shadow: var(--glow-intensity) var(--neon-blue);
+            transform: scale(1.1);
+            font-weight: 900;
+        }
+
+        .proposal-link.active::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border: 2px solid var(--cyber-yellow);
+            border-radius: 50%;
+            animation: pulse-ring 1.5s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.3); opacity: 0; }
+        }
+
+        /* Tech Header */
+        .tech-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--neon-blue);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-tech {
+            height: 50px;
+            filter: brightness(0) invert(1);
+            transition: all 0.3s ease;
+        }
+
+        .logo-tech:hover {
+            filter: brightness(0) invert(1) drop-shadow(0 0 10px var(--neon-blue));
+            transform: scale(1.05);
+        }
+
+        .nav-tech {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-tech a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tech a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-blue);
+            transition: width 0.3s ease;
+            box-shadow: 0 0 5px var(--neon-blue);
+        }
+
+        .nav-tech a:hover::after {
+            width: 100%;
+        }
+
+        .nav-tech a:hover {
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        /* Hero 3D Section */
+        .hero-3d {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 40px 80px;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            transform-style: preserve-3d;
+        }
+
+        .hero-text {
+            z-index: 2;
+        }
+
+        .glitch-text {
+            font-family: 'Orbitron', monospace;
+            font-size: 5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            position: relative;
+            animation: glitch 2s infinite;
+            color: var(--neon-blue);
+            text-shadow: 
+                0 0 10px var(--neon-blue),
+                0 0 20px var(--neon-blue),
+                0 0 30px var(--neon-blue);
+        }
+
+        @keyframes glitch {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 10px var(--neon-blue),
+                    0 0 20px var(--neon-blue),
+                    0 0 30px var(--neon-blue);
+            }
+            25% { 
+                text-shadow: 
+                    -2px 0 var(--cyber-yellow),
+                    2px 0 var(--electric-purple),
+                    0 0 10px var(--neon-blue);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--cyber-yellow);
+            margin: 20px 0;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 30px 0;
+            max-width: 500px;
+            opacity: 0.8;
+        }
+
+        .tech-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .tech-btn {
+            padding: 15px 40px;
+            background: transparent;
+            border: 2px solid var(--neon-blue);
+            color: var(--neon-blue);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 100%, 20px 100%);
+        }
+
+        .tech-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--neon-blue);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .tech-btn:hover::before {
+            left: 0;
+        }
+
+        .tech-btn:hover {
+            color: var(--tech-gray);
+            box-shadow: var(--glow-intensity) var(--neon-blue);
+            transform: translateY(-2px);
+        }
+
+        .tech-btn.primary {
+            background: var(--neon-blue);
+            color: var(--tech-gray);
+        }
+
+        .tech-btn.primary::before {
+            background: var(--cyber-yellow);
+        }
+
+        /* 3D Cube Animation */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-style: preserve-3d;
+        }
+
+        .cube-container {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate-cube 20s infinite linear;
+        }
+
+        @keyframes rotate-cube {
+            0% { transform: rotateX(0deg) rotateY(0deg); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+
+        .cube-face {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: var(--glass-bg);
+            border: 2px solid var(--neon-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--neon-blue);
+            backdrop-filter: blur(10px);
+            box-shadow: inset 0 0 50px rgba(0, 212, 255, 0.3);
+        }
+
+        .cube-face img {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+            opacity: 0.8;
+            filter: brightness(0.8) contrast(1.2);
+        }
+
+        .front { transform: rotateY(0deg) translateZ(200px); }
+        .back { transform: rotateY(180deg) translateZ(200px); }
+        .right { transform: rotateY(90deg) translateZ(200px); }
+        .left { transform: rotateY(-90deg) translateZ(200px); }
+        .top { transform: rotateX(90deg) translateZ(200px); }
+        .bottom { transform: rotateX(-90deg) translateZ(200px); }
+
+        /* Features Grid */
+        .features-tech {
+            padding: 100px 40px;
+            background: linear-gradient(180deg, var(--tech-gray) 0%, var(--deep-blue) 100%);
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title h2 {
+            font-family: 'Orbitron', monospace;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--neon-blue);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::before,
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 100px;
+            height: 2px;
+            background: var(--neon-blue);
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        .section-title h2::before {
+            left: -120px;
+        }
+
+        .section-title h2::after {
+            right: -120px;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .tech-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--neon-blue);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px));
+        }
+
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--neon-blue), var(--electric-purple), var(--cyber-yellow));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            clip-path: inherit;
+        }
+
+        .tech-card:hover::before {
+            opacity: 1;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .tech-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--neon-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+
+        .tech-icon i {
+            font-size: 1.5rem;
+            color: var(--tech-gray);
+        }
+
+        .tech-card h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.3rem;
+            color: var(--cyber-yellow);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .tech-card p {
+            line-height: 1.8;
+            opacity: 0.8;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 40px;
+            background: var(--deep-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .stat-box {
+            text-align: center;
+            position: relative;
+        }
+
+        .stat-number {
+            font-family: 'Orbitron', monospace;
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--neon-blue);
+            text-shadow: 0 0 20px var(--neon-blue);
+            display: block;
+            animation: count-up 2s ease-out;
+        }
+
+        @keyframes count-up {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            color: var(--cyber-yellow);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        /* CTA Section */
+        .cta-tech {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, var(--electric-purple) 0%, var(--deep-blue) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-tech::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%2300d4ff" opacity="0.5"/></svg>');
+            background-size: 50px 50px;
+            animation: stars-move 50s linear infinite;
+        }
+
+        @keyframes stars-move {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50px); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        .tech-footer {
+            background: var(--tech-gray);
+            border-top: 1px solid var(--neon-blue);
+            padding: 60px 40px 30px;
+            position: relative;
+        }
+
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Orbitron', monospace;
+            color: var(--neon-blue);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .footer-section a {
+            color: var(--text-light);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .footer-section a::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--cyber-yellow);
+            transition: left 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--neon-blue);
+            padding-left: 30px;
+        }
+
+        .footer-section a:hover::before {
+            left: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 212, 255, 0.3);
+            color: var(--text-light);
+            opacity: 0.6;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .glitch-text {
+                font-size: 3.5rem;
+            }
+
+            .cube-container {
+                width: 300px;
+                height: 300px;
+            }
+
+            .cube-face {
+                width: 300px;
+                height: 300px;
+            }
+
+            .front { transform: rotateY(0deg) translateZ(150px); }
+            .back { transform: rotateY(180deg) translateZ(150px); }
+            .right { transform: rotateY(90deg) translateZ(150px); }
+            .left { transform: rotateY(-90deg) translateZ(150px); }
+            .top { transform: rotateX(90deg) translateZ(150px); }
+            .bottom { transform: rotateX(-90deg) translateZ(150px); }
+
+            .nav-tech {
+                display: none;
+            }
+
+            .section-title h2::before,
+            .section-title h2::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .proposals-nav {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                padding: 12px 15px;
+            }
+
+            .proposals-container {
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .proposals-label {
+                font-size: 0.8rem;
+            }
+
+            .proposal-link,
+            .home-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
+            }
+
+            .proposals-container::after {
+                left: 50px;
+                height: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .proposals-label {
+                display: none;
+            }
+            
+            .proposals-container::after {
+                display: none;
+            }
+
+            .glitch-text {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .tech-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .tech-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- Background Elements -->
+    <div class="bg-grid"></div>
+    <div class="cyber-particles" id="particles"></div>
+
+    <!-- Proposals Navigation -->
+    <div class="proposals-nav">
+        <div class="proposals-container">
+            <a href="index.html" class="home-btn" title="Torna alla selezione">
+                <i class="fas fa-home"></i>
+            </a>
+            <span class="proposals-label">Proposte:</span>
+            <nav class="proposals-links">
+                <a href="proposal1.html" class="proposal-link">1</a>
+                <a href="proposal2.html" class="proposal-link active">2</a>
+                <a href="proposal3.html" class="proposal-link">3</a>
+                <a href="proposal4.html" class="proposal-link">4</a>
+                <a href="proposal5.html" class="proposal-link">5</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Tech Header -->
+    <header class="tech-header">
+        <div class="header-content">
+            <a href="#home">
+                <img src="images_index/logo_index.jpg" alt="Punto Luce" class="logo-tech">
+            </a>
+            <nav class="nav-tech">
+                <a href="#home">HOME</a>
+                <a href="#servizi">SERVIZI</a>
+                <a href="#prodotti">PRODOTTI</a>
+                <a href="#statistiche">STATISTICHE</a>
+                <a href="#contatti">CONTATTI</a>
+                <a href="https://shop.puntoluce.net/">SHOP</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero 3D Section -->
+    <section class="hero-3d" id="home">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1 class="glitch-text">PUNTO LUCE</h1>
+                <p class="hero-subtitle">Il Futuro è Elettrico</p>
+                <p class="hero-description">
+                    Tecnologia avanzata e innovazione nel settore elettrico. 
+                    Soluzioni intelligenti per abitazioni e aziende del domani. 
+                    Dove la sicurezza incontra l'efficienza energetica.
+                </p>
+                <div class="tech-buttons">
+                    <a href="https://shop.puntoluce.net/" class="tech-btn primary">
+                        <i class="fas fa-bolt"></i> SHOP ONLINE
+                    </a>
+                    <a href="#servizi" class="tech-btn">
+                        <i class="fas fa-microchip"></i> ESPLORA
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="cube-container">
+                    <div class="cube-face front">
+                        <img src="images_index/index1.jpg" alt="Punto Luce Tech">
+                    </div>
+                    <div class="cube-face back">
+                        <i class="fas fa-solar-panel"></i>
+</div>
+<div class="cube-face right">
+    <img src="images_index/index2.jpg" alt="Tecnologia Futuristica">
+</div>
+<div class="cube-face left">
+    <i class="fas fa-brain"></i>
+</div>
+<div class="cube-face top">
+    <img src="images_index/index3.jpg" alt="Innovazione Energetica">
+</div>
+<div class="cube-face bottom">
+    <i class="fas fa-plug"></i>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Sezione Servizi -->
+<section class="features-tech" id="servizi">
+    <div class="section-title">
+        <h2>Servizi Smart</h2>
+    </div>
+    <div class="tech-grid">
+        <div class="tech-card">
+            <div class="tech-icon"><i class="fas fa-house-user"></i></div>
+            <h3>Domotica Intelligente</h3>
+            <p>Controlla la tua casa ovunque ti trovi: illuminazione, sicurezza e consumi sempre sotto controllo.</p>
+        </div>
+        <div class="tech-card">
+            <div class="tech-icon"><i class="fas fa-water"></i></div>
+            <h3>Termoidraulica</h3>
+            <p>Impianti termo-idraulici efficienti per abitazioni e aziende. Comfort, sicurezza e risparmio energetico su misura.</p>
+        </div>
+        <div class="tech-card">
+        <div class="tech-icon"><i class="fas fa-lightbulb"></i></div>
+        <h3>Illuminazione</h3>
+        <p>Soluzioni luminose per ogni ambiente: negozi, uffici, esterni e abitazioni. Design, efficienza e risparmio energetico garantiti.</p>
+    </div>
+
+    </div>
+</section>
+
+<!-- Statistiche -->
+<section class="stats-section" id="statistiche">
+    <div class="stats-container">
+        <div class="stat-box">
+            <span class="stat-number">+10K</span>
+            <span class="stat-label">Clienti Soddisfatti</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-number">98%</span>
+            <span class="stat-label">Efficienza Energetica</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Supporto Tecnico</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Soluzioni Personalizzate</span>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-tech" id="contatti">
+    <div class="cta-content">
+        <h2 class="glitch-text">Unisciti alla Rivoluzione Elettrica</h2>
+        <p class="hero-description">Siamo pronti a trasformare il modo in cui vivi e lavori con soluzioni tecnologiche sostenibili. Scopri cosa possiamo fare per te.</p>
+        <div class="tech-buttons" style="justify-content: center;">
+            <a href="mailto:info@puntoluce.net" class="tech-btn primary"><i class="fas fa-envelope"></i> CONTATTACI</a>
+            <a href="https://shop.puntoluce.net/" class="tech-btn"><i class="fas fa-store"></i> VAI ALLO SHOP</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="tech-footer">
+    <div class="footer-grid">
+        <div class="footer-section">
+            <h3>Contatti</h3>
+            <a href="mailto:info@puntoluce.net">info@puntoluce.net</a>
+            <a href="tel:+390000000000">+39 000 000 0000</a>
+            <a href="#">Via dell’Energia, 88 – Bologna</a>
+        </div>
+        <div class="footer-section">
+            <h3>Link Utili</h3>
+            <a href="#home">Home</a>
+            <a href="#servizi">Servizi</a>
+            <a href="#prodotti">Prodotti</a>
+            <a href="#contatti">Contatti</a>
+        </div>
+        <div class="footer-section">
+            <h3>Seguici</h3>
+            <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2025 Punto Luce. Tutti i diritti riservati.
+    </div>
+</footer>
+
+<!-- JavaScript Cursor Follow -->
+<script>
+    const cursor = document.querySelector('.cursor');
+    const dot = document.querySelector('.cursor-dot');
+
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.top = `${e.clientY}px`;
+        cursor.style.left = `${e.clientX}px`;
+        dot.style.top = `${e.clientY}px`;
+        dot.style.left = `${e.clientX}px`;
+    });
+
+    // Cyber particles
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 100; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('cyber-particle');
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.animationDelay = `${Math.random() * 20}s`;
+        particle.style.opacity = Math.random();
+        particlesContainer.appendChild(particle);
+    }
+</script>
+</body>
+</html>
