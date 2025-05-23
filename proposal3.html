@@ -3,37 +3,837 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Punto Luce - Eccellenza nel Materiale Elettrico</title>
-    <meta name="description" content="Distributore specializzato in materiale elettrico ed elettronico di alta qualità per professionisti ed aziende">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
+    <title>Puntoluce - Proposta 3</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/splide/4.1.4/css/splide.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
     <style>
+        /* CSS Variables */
         :root {
-            --gold: #c5a47e;
-            --dark-blue: #0a1a2e;
-            --light-gray: #f8f8f8;
-            --text-dark: #333;
-            --text-light: #777;
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --bg-primary: white;
+            --bg-gray: #f7f7f7;
+            --bg-input: #ffbe00;
+            --bg-overlay: #00000065;
+            --bg-overlay-gallery: #000000ad;
+            --bg-slideshow-arrow: #ffffff75;
+            --bg-neutral: #e5e5e5;
+            --bg-accent: #ffedd5;
+            --bg-danger: #ffe4e6;
+            --bg-warning: #fef9c3;
+            --bg-blend-image: #f6f6f6;
+            --color-onaccent: #fff;
+            --color-gray: #afafaf;
+            --color-primary: #037dd3;
+            --color-neutral: #525252;
+            --color-accent: #ffbe00;
+            --color-success: #059669;
+            --color-danger: #e11d48;
+            --color-warning: #ca8a04;
+            --color-sidebar: #d4d4d4;
+            --color-rating: #ffa41b;
+            --color-open2b: #254575;
+            --color-text-dark: #2a2a2a;
+            --color-border: #f0f0f0;
+            --text-input-submit: #000;
+            --border-primary: #e8e8e8;
+            --shadow: 0px 5px 15px -3px rgba(0, 0, 0, 0.1);
+            --radius-small: 3px;
+            --radius: 5px;
+            --radius-large: 10px;
+            --header-bar-height: 30px;
+            --header-top-height: 85px;
+            --header-mobile-top-height: 110px;
+            --header-top-search-height: 38px;
+            --header-mobile-top-search-height: 38px;
+            --header-navigation-height: 48px;
+            --header-height: calc(var(--header-bar-height) + var(--header-top-height) + var(--header-navigation-height));
+            --header-mobile-height: calc(var(--header-bar-height) + var(--header-mobile-top-height));
+            --cart-preview-actions-max-height: 145px;
+            --side-modal-header-height: 90px;
+            --sticky-height: calc(var(--viewport-height) - var(--sticky-top));
         }
 
-        * {
-            margin: 0;
-            padding: 0;
+        /* Reset & Base Styles */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        html.design-panel-isopen body {
+            overflow: hidden;
+        }
+
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
+            overflow-wrap: break-word;
+        }
+
+        html, 
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
         }
 
         body {
-            font-family: 'Lato', sans-serif;
-            color: var(--text-dark);
-            background: var(--light-gray);
-            line-height: 1.7;
+            padding: 0;
+            margin: 0;
+            padding-top: var(--header-height);
+            background-color: var(--bg-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        a {
+            font-weight: 500;
+            color: unset;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            display: block;
+            width: 100%;
+            max-width: 1700px;
+            padding: 0 80px;
+            margin: auto;
+        }
+
+        button {
+            background-color: transparent;
+            border: 0;
+            box-shadow: none;
+            font-size: 14px;
+            max-width: 100%;
+            cursor: pointer;
+        }
+
+        input {
+            background-color: var(--bg-primary);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-primary);
+        }
+
+        input[type="text"], input[type="email"], input[type="password"],input[type="tel"], input[type="number"] {
+            padding: 17px 20px;
+            line-height: 1.5;
+            max-width: 100%;
+        }
+
+        /* Material Symbols */
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: var(--bg-primary);
+            position: fixed;
+            z-index: 25;
+            top: 0;
+            left: 0;
+            width: 100%;
+            transition: filter .3s;
+        }
+
+        /* Header Bar */
+        .header .header__bar {
+            background-color: var(--color-primary);
+            height: var(--header-bar-height);
+            display: flex;
+            align-items: center;
+            will-change: height;
+            transition: height .1s;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header .header__bar-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 500;
+            font-size: 13px;
+            gap: 30px;
+            opacity: 1;
+            transition: opacity .1s;
+            will-change: opacity;
+            color: var(--color-onaccent);
+        }
+
+        .header .header__bar-promo {
+            color: var(--color-onaccent);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header .header__bar-promo-icon {
+            font-size: 21px;
+            position: relative;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .header .header__bar-feedaty {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 10px;
+            flex-grow: 0;
+            background: 0 0;
+            padding: 0 auto;
+            transition: 0.3s ease-in-out;
+            position: relative;
+            color: var(--color-onaccent);
+        }
+
+        /* Header Top */
+        .header .header__top {
+            height: var(--header-top-height);
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 40px;
+            align-items: center;
+            padding: 15px 30px;
+        }
+
+        .header .header__logo {
+            white-space: nowrap;
+        }
+
+        .header .header__logo > a {
+            display: block;
+            max-width: fit-content;
+        }
+
+        .header .header__logo img {
+            display: block;
+            will-change: transform;
+            max-height: 80px;
+            width: auto;
+        }
+
+        .header .header__mobile-logo { 
+            display: none; 
+        }
+
+        /* Header Search */
+        .header .header__search {
+            width: 100%;
+            max-width: 700px;        
+            margin: 0 auto;
+            justify-self: center;    
+        }
+
+        .header .header__search > form {
+            display: flex;
+            width: 100%;
+        }
+
+        .header .header__search .header__search-box {
+            width: 100%;
+            padding: 8px 15px;
+            font-size: 14px;
+            border-radius: var(--radius);
+            height: var(--header-top-search-height);
+            border: 1px solid var(--color-border);
+        }
+
+        .header__search-form {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .header__search-form .header__search-box {
+            width: 100%;
+            padding-right: 40px;
+        }
+
+        .header__search-form .header__search-button {
+            position: absolute;
+            right: 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header__search-form .header__search-button span {
+            font-size: 24px;
+            color: #666;
+            transition: color 0.3s;
+        }
+
+        /* Header Buttons */
+        .header .header__buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .header .header__account-button,
+        .header .header__cart {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            background-color: var(--bg-primary);
+            color: var(--color-text-dark);
+            padding: 10px 15px;
+            height: var(--header-top-search-height);
+            border-radius: var(--radius);
+            cursor: pointer;
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .header__cart {
+            position: relative;
+        }
+
+        .header__cart-quantity {
+            display: inline-block !important;
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background-color: var(--color-accent); 
+            color: var(--color-onaccent);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 7px;
+            border-radius: 50%;
+            line-height: 1;
+            min-width: 20px;
+            text-align: center;
+            box-shadow: 0 0 0 2px white; 
+            z-index: 10;
+        }
+
+        .header .header__side-menu {
+            display: none;
+            position: relative;
+            background-color: var(--bg-primary);
+            color: var(--color-text-dark);
+            padding: 10px;
+            height: var(--header-top-search-height);
+            border-radius: var(--radius);
+            cursor: pointer;
+            border: 1px solid var(--color-border);
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Header Navigation */
+        .header .header__navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: var(--header-navigation-height);
+        }
+
+        .header .header__navigation-left,
+        .header .header__navigation-right {
+            display: flex;
+        }
+
+        .header .header__navigation-item-text,
+        .header .header__navigation-item > a {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            cursor: pointer;
+            padding: 12px 15px;
+            border-right: 0.5px solid var(--color-border);
+        }
+
+        .header .header__navigation-item-text:hover,
+        .header .header__navigation-item > a:hover {
+            color: var(--color-primary);
+        }
+
+        .header .header__navigation-phone {
+            margin-left: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Homepage Styles */
+        .homepage {
             overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .homepage .homepage__slider {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 30px;
+            text-align: center;
+            max-width: 1700px;
+            margin: auto;
+            background-color: var(--bg-primary);
+        }
+
+        .homepage .homepage__slider img {
+            border-radius: var(--radius-large);
+        }
+
+        /* High Section */
+        .homepage .high-section {
+            position: relative;
+            width: 100%;
+            max-width: 1700px;
+            margin: 0 auto;
+            padding: 0 30px; 
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            column-gap: 5px;
+        }
+
+        .homepage .high-section .high-section__box {
+            width: calc(33.333% - 20px) !important;
+            height: 250px !important;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            flex: none !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .homepage .high-section .high-section__box a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+        }
+
+        .homepage .high-section .high-section__box:nth-child(3) {
+            width: 45% !important;
+        }
+
+        .homepage .high-section .high-section__box:nth-child(1),
+        .homepage .high-section .high-section__box:nth-child(2) {
+            width: 25% !important;
+        }
+
+        .homepage .high-section .high-section__box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease-out;
+            border-radius: 12px;
+        }
+
+        .homepage .high-section .high-section__box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .homepage .high-section .high-section__box:hover img {
+            transform: scale(1.01);
+        }
+
+        .homepage .high-section .high-section__text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 20px;
+        }
+
+        .homepage .high-section .high-section__title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .homepage .high-section .high-section__subtitle {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-bottom: 3px;
+        }
+
+        .homepage .high-section .high-section__description {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Low Section */
+        .homepage .low-section {
+            background-color: var(--bg-gray);
+            padding: 40px 0;
+            margin-bottom: 0;
+        }
+
+        .homepage .low-section__heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .homepage .low-section__maintitle {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .homepage .low-section__subtitle {
+            font-size: 18px;
+            color: var(--color-neutral);
+        }
+
+        .homepage .low-section__list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .homepage .low-section__box {
+            background-color: var(--bg-primary);
+            border-radius: var(--radius-large);
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .homepage .low-section__box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .homepage .low-section__box-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .homepage .low-section__box-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .homepage .low-section__box:hover .low-section__box-image img {
+            transform: scale(1.05);
+        }
+
+        .homepage .low-section__text {
+            padding: 20px;
+        }
+
+        .homepage .low-section__title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--color-text-dark);
+        }
+
+        .homepage .low-section__description {
+            font-size: 14px;
+            color: var(--color-neutral);
+            line-height: 1.5;
+        }
+
+        /* Products Section */
+        .homepage__products {
+            background-color: var(--bg-gray);
+            padding: 40px 0;
+            margin-bottom: 0;
+        }
+
+        .homepage__products-title {
+            text-align: center;
+            color: var(--color-primary);
+            padding: 15px 30px;
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0 auto 30px auto;
+        }
+
+        .product-card {
+            background-color: var(--bg-primary);
+            border-radius: var(--radius);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            height: 100%;
+            position: relative;
+            margin: 0 10px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .product-card__badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--color-accent);
+            color: var(--color-onaccent);
+            padding: 4px 8px;
+            border-radius: var(--radius-small);
+            font-size: 12px;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .product-card__badge--new {
+            background-color: var(--color-primary);
+        }
+
+        .product-card__badge--sale {
+            background-color: var(--color-danger);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-info h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--color-text-dark);
+        }
+
+        .product-info .price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin: 0;
+        }
+        .homepage .homepage__blog {
+            padding: 40px 0;
+            background-color: var(--bg-primary);
+        }
+
+        .homepage .homepage__blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .homepage .homepage__blogposts-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 30px;
+        }
+
+        .homepage .blog-iframe-container {
+            margin-bottom: 30px;
+            border-radius: var(--radius-large);
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .homepage .blog-iframe-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        .homepage .homepage__blog-button {
+            margin-top: 20px;
+        }
+
+        .homepage .button-to-blog {
+            background-color: var(--color-primary);
+            color: var(--color-onaccent);
+            padding: 15px 30px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .homepage .button-to-blog:hover {
+            background-color: #0269c2;
+        }
+
+        /* Promo Section */
+        .promo-section {
+            padding: 40px 0;
+            background-color: var(--bg-gray);
+        }
+
+        /* Reviews Section */
+        .homepage .feedaty_widget {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        /* Side Menu */
+        .side-menu {
+            position: fixed;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 450px;
+            transform: translateX(500px);
+            visibility: hidden;
+            pointer-events: none;
+            background-color: var(--bg-primary);
+            z-index: 60;
+            transition: transform .8s cubic-bezier(.20,1,.40,1), visibility 0s .8s;
+        }
+
+        .side-menu.design-isopen {
+            visibility: visible;
+            transform: translateX(0);
+            pointer-events: auto;
+        }
+
+        .side-menu__header {
+            display: flex;
+            justify-content: space-between;
+            padding: 25px 40px;
+            align-items: center;
+            height: var(--side-modal-header-height);
+        }
+
+        .side-menu__heading {
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .side-menu__close {
+            cursor: pointer;
+            font-variation-settings: 'wght' 300;
+            font-size: 28px;
+            user-select: none;
+        }
+
+        .side-menu__body {
+            padding: 25px 40px;
+            height: calc(100% - var(--side-modal-header-height));
+            padding-top: 0;
+            overflow-y: auto;
+        }
+
+        .side-menu__navigation-departments-title,
+        .side-menu__navigation-shop-title {
+            font-size: 21px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .side-menu__navigation-department {
+            position: relative;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-primary);
+        }
+
+        .category-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 10px 12px;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--color-text-dark);
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .category-toggle:hover {
+            background-color: var(--bg-neutral);
+            color: var(--color-primary);
+        }
+
+        .toggle-icon {
+            width: 12px;
+            height: 12px;
+            transform: rotate(45deg);
+            transition: transform 0.3s;
+        }
+
+        .subcategories {
+            padding-left: 20px;
+            margin-top: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .subcategory-item {
+            display: block;
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            border-radius: var(--radius-small);
+            transition: all 0.2s ease;
+            position: relative;
+            padding-left: 20px;
+            font-weight: 400;
+        }
+
+        /* Overlay */
+        .overlay {
+            background-color: var(--bg-overlay);
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s .3s, opacity .3s;
+            pointer-events: none;
+        }
+
+        html.design-panel-isopen .overlay {
+            visibility: visible;
+            opacity: 1;
+            pointer-events: auto;
+            transition: visibility 0s, opacity .3s;
         }
 
         /* Proposals Navigation */
@@ -42,11 +842,18 @@
             top: 20px;
             right: 20px;
             z-index: 2000;
-            background: white;
-            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-large);
             padding: 15px 20px;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .proposals-nav:hover {
+            background: rgba(255, 255, 255, 0.98);
+            transform: scale(1.02);
         }
 
         .proposals-container {
@@ -56,28 +863,70 @@
             position: relative;
         }
 
+        /* Home Button */
         .home-btn {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 40px;
             height: 40px;
-            background: var(--dark-blue);
+            background: var(--color-primary);
             color: white;
             border-radius: 50%;
             text-decoration: none;
-            transition: var(--transition);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1.1rem;
+            box-shadow: 0 3px 10px rgba(3, 125, 211, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .home-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--color-accent);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
+        }
+
+        .home-btn:hover::before {
+            width: 100%;
+            height: 100%;
         }
 
         .home-btn:hover {
-            background: var(--gold);
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(-10deg);
+            box-shadow: 0 5px 20px rgba(255, 190, 0, 0.4);
+        }
+
+        .home-btn:hover i {
+            position: relative;
+            z-index: 1;
+            color: var(--color-text-dark);
+        }
+
+        /* Divider */
+        .proposals-container::after {
+            content: '';
+            position: absolute;
+            left: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 25px;
+            width: 1px;
+            background: var(--color-border);
         }
 
         .proposals-label {
             font-size: 0.9rem;
             font-weight: 600;
-            color: var(--dark-blue);
+            color: var(--color-primary);
+            white-space: nowrap;
         }
 
         .proposals-links {
@@ -94,312 +943,234 @@
             border-radius: 50%;
             text-decoration: none;
             font-weight: 600;
-            background: #f0f0f0;
-            color: var(--text-light);
-            transition: var(--transition);
-        }
-
-        .proposal-link.active {
-            background: var(--dark-blue);
-            color: white;
-        }
-
-        .proposal-link:hover:not(.active) {
-            background: var(--gold);
-            color: white;
-        }
-
-        /* Header */
-        .luxury-header {
-            background: white;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-luxury {
-            height: 60px;
-            transition: var(--transition);
-        }
-
-        .logo-luxury:hover {
-            opacity: 0.9;
-        }
-
-        .nav-luxury {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-luxury a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 400;
-            position: relative;
-            padding: 5px 0;
-            transition: var(--transition);
-        }
-
-        .nav-luxury a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gold);
-            transition: var(--transition);
-        }
-
-        .nav-luxury a:hover::after {
-            width: 100%;
-        }
-
-        .nav-luxury a:hover {
-            color: var(--gold);
-        }
-
-        /* Hero Section */
-        .luxury-hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 40px 80px;
-            position: relative;
-            background: url('images_index/index1.jpg') no-repeat center center;
-            background-size: cover;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 26, 46, 0.7);
-        }
-
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-            color: white;
-            padding-top: 100px;
-        }
-
-        .hero-subtitle {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            color: var(--gold);
-            margin-bottom: 20px;
-            letter-spacing: 3px;
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 30px;
-            max-width: 700px;
-        }
-
-        .hero-description {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-        }
-
-        .luxury-btn {
-            padding: 15px 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
+            font-size: 0.9rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: 2px solid transparent;
         }
 
-        .primary-btn {
-            background: var(--gold);
+        .proposal-link:not(.active) {
+            background: var(--bg-gray);
+            color: var(--color-neutral);
+        }
+
+        .proposal-link:not(.active):hover {
+            background: var(--bg-accent);
+            color: var(--color-primary);
+            border-color: var(--color-accent);
+            transform: scale(1.1);
+        }
+
+        .proposal-link.active {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-open2b));
             color: white;
+            border-color: var(--color-accent);
+            box-shadow: 0 5px 15px rgba(3, 125, 211, 0.3);
+            transform: scale(1.1);
         }
 
-        .primary-btn:hover {
-            background: transparent;
-            border-color: var(--gold);
-            transform: translateY(-3px);
-        }
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .proposals-nav {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                padding: 12px 15px;
+            }
 
-        .secondary-btn {
-            background: transparent;
-            color: white;
-            border-color: white;
-        }
+            .proposals-container {
+                justify-content: center;
+                gap: 10px;
+            }
 
-        .secondary-btn:hover {
-            background: white;
-            color: var(--dark-blue);
-            transform: translateY(-3px);
-        }
+            .proposals-label {
+                font-size: 0.8rem;
+            }
 
-        /* Features */
-        .luxury-features {
-            padding: 100px 40px;
-            background: white;
-        }
+            .proposal-link,
+            .home-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
+            }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
+            .home-btn {
+                font-size: 0.9rem;
+            }
 
-        .section-subtitle {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            color: var(--gold);
-            margin-bottom: 15px;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--dark-blue);
-            margin-bottom: 20px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .feature-card {
-            text-align: center;
-            padding: 40px 30px;
-            transition: var(--transition);
-        }
-
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--light-gray);
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-
-        .feature-card:hover .feature-icon {
-            background: var(--gold);
-            color: white;
-            transform: rotate(15deg) scale(1.1);
-        }
-
-        .feature-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--dark-blue);
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 100px 40px;
-            background: var(--light-gray);
-        }
-
-        /* CTA */
-        .luxury-cta {
-            padding: 120px 40px;
-            background: var(--dark-blue);
-            color: white;
-            text-align: center;
-        }
-
-        /* Footer */
-        .luxury-footer {
-            background: var(--dark-blue);
-            color: white;
-            padding: 80px 40px 30px;
-        }
-
-        .footer-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        .footer-logo {
-            margin-bottom: 20px;
-        }
-
-        .footer-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: var(--gold);
-        }
-
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--gold);
-            transform: translateX(5px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .hero-title {
-                font-size: 3.5rem;
+            .proposals-container::after {
+                left: 50px;
+                height: 20px;
             }
         }
 
-        @media (max-width: 768px) {
-            .nav-luxury {
+        @media (max-width: 480px) {
+            .proposals-label {
                 display: none;
             }
             
-            .hero-title {
-                font-size: 2.8rem;
+            .proposals-container::after {
+                display: none;
+            }
+        }
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .header .header__top {
+                grid-template-columns: 150px 1fr 150px;
+            }
+
+            .header .header__account-button,
+            .header .header__cart,
+            .header .header__side-menu {
+                display: block;
+                background-color: transparent;
+                color: unset;
+                font-size: 0;
+                padding: 0;
+                height: unset;
+                border: none;
+            }
+
+            .header .header__account-button > .material-symbols-outlined,
+            .header .header__cart > .material-symbols-outlined,
+            .header .header__side-menu > .material-symbols-outlined {
+                font-variation-settings: 'wght' 300;
+                font-size: 38px;
+                max-width: 38px;
+            }
+
+            .header .header__navigation-left .header__navigation-item,
+            .header .header__navigation-right {
+                display: none;
+            }
+
+            .side-menu {
+                display: block;
+            }
+
+            .homepage .high-section {
+                flex-flow: row wrap;
+                gap: 20px;
+                padding: 0 15px;
             }
             
-            .hero-buttons {
-                flex-direction: column;
+            .homepage  .high-section .high-section__box:nth-child(1),
+            .homepage .high-section .high-section__box:nth-child(2) {
+                width: calc(50% - 10px) !important;
+                height: 180px !important;
+            }
+            
+            .homepage .high-section .high-section__box:nth-child(3) {
+                width: 100% !important;
+                height: 160px !important;
+            }
+        }
+
+        @media (max-width: 808px) {
+            body {
+                padding-top: var(--header-mobile-height);
+            }
+
+            .header .header__bar {
+                display: none;
+            }
+
+            .header .header__top {
+                grid-template-columns: auto 1fr auto;
+                gap: 15px;
+                padding: 10px 15px;
+                height: var(--header-top-height);
+            }
+
+            .header .header__logo img {
+                max-height: 60px;
+            }
+
+            .header .header__navigation {
+                display: none;
+            }
+
+            .homepage .low-section__list {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header .header__top {
+                display: grid;
+                grid-template-columns: 1fr auto;
+                grid-template-rows: auto auto;
+                grid-template-areas: 
+                    "logo buttons"
+                    "search search";
+                row-gap: 8px;
+                column-gap: 10px;
+                padding: 8px 10px;
+                height: auto;
+            }
+            
+            .header .header__logo {
+                display: none;
+            }
+            
+            .header .header__mobile-logo { 
+                display: block;
+                grid-area: logo;
+            }
+            
+            .header .header__mobile-logo img {
+                max-height: 60px;
+                width: auto;
+                height: auto;
+            }
+            
+            .header .header__search {
+                display: block;
+                grid-area: search;
+                width: 100%;
+            }
+            
+            .header .header__buttons {
+                grid-area: buttons;
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            .homepage .low-section__list {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .homepage .high-section .high-section__box:nth-child(1),
+            .homepage .high-section .high-section__box:nth-child(2) {
+                width: calc(50% - 8px) !important;
+                height: 120px !important;
+            }
+            
+            .homepage .high-section .high-section__box:nth-child(3) {
+                width: 100% !important;
+                height: 140px !important;
+            }
+
+            .side-menu,
+            .mini-cart {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .homepage .high-section .high-section__box:nth-child(1),
+            .homepage .high-section .high-section__box:nth-child(2) {
+                width: calc(50% - 5px) !important;
+                height: 100px !important;
+            }
+            
+            .homepage .high-section .high-section__box:nth-child(3) {
+                width: 100% !important;
+                height: 100px !important;
             }
         }
     </style>
@@ -408,125 +1179,617 @@
     <!-- Proposals Navigation -->
     <div class="proposals-nav">
         <div class="proposals-container">
-            <a href="index.html" class="home-btn">
+            <a href="index.html" class="home-btn" title="Torna alla selezione">
                 <i class="fas fa-home"></i>
             </a>
             <span class="proposals-label">Proposte:</span>
             <nav class="proposals-links">
                 <a href="proposal1.html" class="proposal-link">1</a>
                 <a href="proposal2.html" class="proposal-link">2</a>
-                <a href="proposal3.html" class="proposal-link active">3</a>
+                <a href="proposal3.html" class="proposal-link active">3</a> <!-- ATTIVO per proposal3 -->
                 <a href="proposal4.html" class="proposal-link">4</a>
                 <a href="proposal5.html" class="proposal-link">5</a>
             </nav>
         </div>
     </div>
 
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="side-menu">
+        <div class="side-menu__header">
+            <div class="side-menu__heading">Menu</div>
+            <span class="side-menu__close material-symbols-outlined" onclick="toggleSideMenu()">close</span>
+        </div>
+        <div class="side-menu__body">
+            <div class="side-menu__navigation">
+                <div class="side-menu__navigation-departments-title">Prodotti</div>
+                
+                <div class="side-menu__navigation-department">
+                    <div class="category-toggle" onclick="toggleDropdown(event, this)">
+                        Illuminazione LED
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="subcategories" style="display: none;">
+                        <a href="https://www.puntoluce.net/products?department=123" class="subcategory-item">
+                            Strisce LED
+                        </a>
+                        <a href="https://www.puntoluce.net/products?department=124" class="subcategory-item">
+                            Lampadine LED
+                        </a>
+                        <a href="https://www.puntoluce.net/products?department=125" class="subcategory-item">
+                            Faretti LED
+                        </a>
+                    </div>
+                </div>
+
+                <div class="side-menu__navigation-department">
+                    <div class="category-toggle" onclick="toggleDropdown(event, this)">
+                        Elettronica
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="subcategories" style="display: none;">
+                        <a href="https://www.puntoluce.net/products?department=126" class="subcategory-item">
+                            Alimentatori
+                        </a>
+                        <a href="https://www.puntoluce.net/products?department=127" class="subcategory-item">
+                            Controller
+                        </a>
+                    </div>
+                </div>
+
+                <div class="side-menu__navigation-department">
+                    <div class="category-toggle" onclick="toggleDropdown(event, this)">
+                        Accessori e Componenti
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="subcategories" style="display: none;">
+                        <a href="https://www.puntoluce.net/products?department=128" class="subcategory-item">
+                            Cavi e Connettori
+                        </a>
+                        <a href="https://www.puntoluce.net/products?department=129" class="subcategory-item">
+                            Profili Alluminio
+                        </a>
+                    </div>
+                </div>
+
+                <div class="side-menu__navigation-shop-title">Negozio</div>
+                
+                <div class="side-menu__navigation-shop-item">
+                    <a href="https://www.puntoluce.net/products">Tutti i Prodotti</a>
+                </div>
+                <div class="side-menu__navigation-shop-item">
+                    <a href="https://www.puntoluce.net/offers">Offerte</a>
+                </div>
+                <div class="side-menu__navigation-shop-item">
+                    <a href="https://www.puntoluce.net/new-products">Novità</a>
+                </div>
+
+                <div class="side-menu__navigation-items">
+                    <div class="side-menu__navigation-items-title">Link Rapidi</div>
+                    <div class="side-menu__navigation-item">
+                        <a href="https://www.puntoluce.net/about">Chi Siamo</a>
+                    </div>
+                    <div class="side-menu__navigation-item">
+                        <a href="https://www.puntoluce.net/contact">Contatti</a>
+                    </div>
+                    <div class="side-menu__navigation-item">
+                        <a href="https://www.puntoluce.net/comefare/">Blog</a>
+                    </div>
+                </div>
+                
+                <a class="side-menu__phone-number" href="tel:+3905119900957">
+                    <span class="material-symbols-outlined">call</span>
+                    <span>+39 051 199 00 957</span>
+                    <span> - Chiamaci</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
-    <header class="luxury-header">
-        <div class="header-container">
-            <a href="#">
-                <img src="images_index/logo_index.jpg" alt="Punto Luce" class="logo-luxury">
-            </a>
-            <nav class="nav-luxury">
-                <a href="#home">Home</a>
-                <a href="#servizi">Servizi</a>
-                <a href="#prodotti">Prodotti</a>
-                <a href="#contatti">Contatti</a>
-                <a href="https://shop.puntoluce.net/">Shop</a>
-            </nav>
+    <div class="header" id="header">
+        <!-- Header Bar -->
+        <div class="header__bar">
+            <div class="header__bar-content container">
+                <div class="header__bar-promo">
+                    <a href="tel:+3905119900957">
+                        <span class="header__bar-promo-icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.62 10.79a15.05 15.05 0 006.58 6.58l2.2-2.2a1 1 0 011.06-.21c1.12.45 2.34.69 3.6.69a1 1 0 011 1v3.5a1 1 0 01-1 1C8.95 22 2 15.05 2 6.5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.26.24 2.48.7 3.6a1 1 0 01-.21 1.06l-2.2 2.2z"/>
+                            </svg>
+                        </span>
+                    </a>
+                    <span>Chiamaci per supporto tecnico: +39 051 199 00 957</span>
+                </div>
+                
+                <div class="header__bar-feedaty">
+                    ⭐⭐⭐⭐⭐ 4.8/5 - 2,847 recensioni
+                </div>
+            </div>
         </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="luxury-hero" id="home">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <p class="hero-subtitle">DOVE IL BUIO NON È MAI DI CASA</p>
-            <h1 class="hero-title">Eccellenza nel Materiale Elettrico</h1>
-            <p class="hero-description">
-                Da oltre 20 anni forniamo prodotti di alta qualità e servizi professionali 
-                nel settore elettrico ed elettronico per clienti esigenti.
-            </p>
-            <div class="hero-buttons">
-                <a href="https://shop.puntoluce.net/" class="luxury-btn primary-btn">Negozio Online</a>
-                <a href="#contatti" class="luxury-btn secondary-btn">Contattaci</a>
+        <!-- Header Top -->
+        <div class="header__top container">
+            <div class="header__logo">
+                <a href="https://www.puntoluce.net/">
+                    <img src="images_index/logo_index.jpg" alt="Puntoluce Logo">
+                </a>
+            </div>
+            <div class="header__mobile-logo">
+                <a href="https://www.puntoluce.net/">
+                    <img src="images_index/logo_index.jpg" alt="Puntoluce Mobile Logo">
+                </a>
+            </div>
+            <div class="header__search">
+                <form action="https://www.puntoluce.net/search" method="post" class="header__search-form">
+                    <input type="text" name="keywords" class="header__search-box" placeholder="Cerca prodotti..." size="15">
+                    <button type="submit" class="header__search-button">
+                        <span class="material-symbols-outlined">search</span>
+                    </button>
+                </form>
+            </div>
+            <div class="header__buttons">
+                <button class="header__account-button">
+                    <span class="material-symbols-outlined">account_circle</span>
+                    <span>Account</span>
+                </button>
+                <button class="header__cart">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <div class="header__cart-total">€0,00</div>
+                    <div class="header__cart-quantity">(0)</div>
+                </button>
+                <button class="header__side-menu" onclick="toggleSideMenu()">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
             </div>
         </div>
-    </section>
 
-    <!-- Features Section -->
-    <section class="luxury-features" id="servizi">
-        <div class="section-header">
-            <p class="section-subtitle">I NOSTRI SERVIZI</p>
-            <h2 class="section-title">Eccellenza Tecnica</h2>
+        <!-- Header Navigation -->
+        <div class="header__navigation container">
+            <ul class="header__navigation-left">
+                <li class="header__navigation-item">
+                    <a href="https://www.puntoluce.net/products" class="header__navigation-item-text">
+                        Prodotti
+                        <span class="material-symbols-outlined header__navigation-item-chevron">expand_more</span>
+                    </a>
+                </li>
+                <li class="header__navigation-item">
+                    <a href="https://www.puntoluce.net/about">Chi Siamo</a>
+                </li>
+                <li class="header__navigation-item">
+                    <a href="https://www.puntoluce.net/comefare/">Blog</a>
+                </li>
+            </ul>
+            <ul class="header__navigation-right">
+                <li class="header__navigation-item">
+                    <a href="https://www.puntoluce.net/contact">Contatti</a>
+                </li>
+                <li class="header__navigation-item">
+                    <a href="https://www.puntoluce.net/offers" class="header__navigation-item-text">
+                        Negozio
+                        <span class="material-symbols-outlined header__navigation-item-chevron">expand_more</span>
+                    </a>
+                </li>
+                <li class="header__navigation-phone">
+                    <span class="material-symbols-outlined">call</span>
+                    +39 051 199 00 957
+                </li>
+            </ul>
         </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-bolt fa-2x"></i>
-                </div>
-                <h3 class="feature-title">Materiale Elettrico</h3>
-                <p>Componenti di alta qualità per impianti civili e industriali, con certificazioni di sicurezza.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-shield-alt fa-2x"></i>
-                </div>
-                <h3 class="feature-title">Sistemi Antifurto</h3>
-                <p>Soluzioni integrate per la sicurezza della tua casa o azienda, con tecnologia avanzata.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-home fa-2x"></i>
-                </div>
-                <h3 class="feature-title">Domotica</h3>
-                <p>Automazione residenziale per comfort, sicurezza e risparmio energetico intelligente.</p>
-            </div>
-        </div>
-    </section>
+    </div>
 
-    <!-- CTA Section -->
-    <section class="luxury-cta">
-        <div class="section-header">
-            <p class="section-subtitle">PRONTI A INIZIARE?</p>
-            <h2 class="section-title" style="color: white;">Trasforma la tua casa o azienda</h2>
-            <a href="https://shop.puntoluce.net/" class="luxury-btn primary-btn" style="margin-top: 30px;">Scopri i Prodotti</a>
+    <!-- Homepage Content -->
+    <div class="homepage">
+        <!-- Homepage Slider -->
+        <div class="homepage__slider">
+            <div class="container">
+                <section class="splide" id="slider-home-banners">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <a href="https://www.puntoluce.net/offers">
+                                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=400&fit=crop&crop=center&auto=format&q=80" alt="Banner Principale - Offerte LED" loading="lazy">
+                                </a>
+                            </li>
+                            <li class="splide__slide">
+                                <a href="https://www.puntoluce.net/new-products">
+                                    <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200&h=400&fit=crop&crop=center&auto=format&q=80" alt="Banner Principale - Nuovi Prodotti" loading="lazy">
+                                </a>
+                            </li>
+                            <li class="splide__slide">
+                                <a href="https://www.puntoluce.net/products">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=400&fit=crop&crop=center&auto=format&q=80" alt="Banner Principale - Tutti i Prodotti" loading="lazy">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="luxury-footer">
-        <div class="footer-grid">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <img src="images_index/logo_index.jpg" alt="Punto Luce" style="height: 60px; filter: brightness(0) invert(1);">
-                </div>
-                <p style="margin-bottom: 20px;">Distributore specializzato in materiale elettrico ed elettronico di alta qualità.</p>
-                <p>© 2025 Punto Luce. Tutti i diritti riservati.</p>
+        <!-- High Section -->
+        <div class="high-section container">
+            <div class="high-section__box">
+                <a href="https://www.puntoluce.net/products?category=led-strips" aria-label="Strisce LED">
+                    <img src="https://images.unsplash.com/photo-1619641805634-c3bc34f4bdcc?w=400&h=300&fit=crop&crop=center&auto=format&q=80" 
+                         alt="Strisce LED Professionali" 
+                         width="400" 
+                         height="300" 
+                         loading="lazy"
+                         decoding="async">
+                    <div class="high-section__text">
+                        <div class="high-section__subtitle">Illuminazione</div>
+                        <div class="high-section__title">Strisce LED</div>
+                        <div class="high-section__description">Soluzioni di illuminazione flessibili</div>
+                    </div>
+                </a>
             </div>
-            <div class="footer-section">
-                <h3 class="footer-title">Link Veloci</h3>
-                <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#servizi">Servizi</a>
-                    <a href="#prodotti">Prodotti</a>
-                    <a href="#contatti">Contatti</a>
-                    <a href="https://shop.puntoluce.net/">Negozio Online</a>
-                </div>
+            <div class="high-section__box">
+                <a href="https://www.puntoluce.net/products?category=led-bulbs" aria-label="Lampadine LED">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&crop=center&auto=format&q=80" 
+                         alt="Lampadine LED Efficienti" 
+                         width="400" 
+                         height="300" 
+                         loading="lazy"
+                         decoding="async">
+                    <div class="high-section__text">
+                        <div class="high-section__subtitle">Risparmio</div>
+                        <div class="high-section__title">Lampadine LED</div>
+                        <div class="high-section__description">Efficienza energetica garantita</div>
+                    </div>
+                </a>
             </div>
-            <div class="footer-section">
-                <h3 class="footer-title">Contatti</h3>
-                <div class="footer-links">
-                    <a href="tel:+390000000000">+39 000 000 0000</a>
-                    <a href="mailto:info@puntoluce.net">info@puntoluce.net</a>
-                    <a href="#">Via dell'Elettricità, 123 - Bologna</a>
+            <div class="high-section__box">
+                <a href="https://www.puntoluce.net/products?category=spotlights" aria-label="Faretti LED">
+                    <img src="https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=700&h=300&fit=crop&crop=center&auto=format&q=80" 
+                         alt="Faretti LED Professionali" 
+                         width="700" 
+                         height="300" 
+                         loading="lazy"
+                         decoding="async">
+                    <div class="high-section__text">
+                        <div class="high-section__subtitle">Professionale</div>
+                        <div class="high-section__title">Faretti LED</div>
+                        <div class="high-section__description">Illuminazione di precisione per ogni ambiente</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Products Section -->
+        <div class="homepage__products">
+            <div class="container">
+                <div class="homepage__products-title">Prodotti in Tendenza</div>
+                <section class="splide" id="slider-home-products">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <div class="product-card">
+                                    <div class="product-card__badge product-card__badge--new">Nuovo</div>
+                                    <a href="https://www.puntoluce.net/product/led-strip-1">
+                                        <img src="https://images.unsplash.com/photo-1619641805634-c3bc34f4bdcc?w=250&h=200&fit=crop&crop=center&auto=format&q=80" alt="Striscia LED 5m">
+                                        <div class="product-info">
+                                            <h3>Striscia LED 5m</h3>
+                                            <p class="price">€29,99</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="splide__slide">
+                                <div class="product-card">
+                                    <div class="product-card__badge product-card__badge--sale">Offerta</div>
+                                    <a href="https://www.puntoluce.net/product/led-bulb-1">
+                                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=250&h=200&fit=crop&crop=center&auto=format&q=80" alt="Lampadina LED E27">
+                                        <div class="product-info">
+                                            <h3>Lampadina LED E27</h3>
+                                            <p class="price">€12,99</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="splide__slide">
+                                <div class="product-card">
+                                    <a href="https://www.puntoluce.net/product/spotlight-1">
+                                        <img src="https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=250&h=200&fit=crop&crop=center&auto=format&q=80" alt="Faretto LED 10W">
+                                        <div class="product-info">
+                                            <h3>Faretto LED 10W</h3>
+                                            <p class="price">€19,99</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="splide__slide">
+                                <div class="product-card">
+                                    <a href="https://www.puntoluce.net/product/controller-1">
+                                        <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=250&h=200&fit=crop&crop=center&auto=format&q=80" alt="Controller RGB">
+                                        <div class="product-info">
+                                            <h3>Controller RGB</h3>
+                                            <p class="price">€35,99</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Low Section -->
+        <div class="low-section">
+            <div class="container">
+                <div class="low-section__heading">
+                    <div class="low-section__subtitle">Le nostre categorie</div>
+                    <div class="low-section__maintitle">Soluzioni per ogni esigenza</div>
+                </div>
+                <div class="low-section__list">
+                    <!-- Primo Box -->
+                    <div class="low-section__box">
+                        <a href="https://www.puntoluce.net/products?category=residential">
+                            <div class="low-section__box-image">
+                                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=350&h=200&fit=crop&crop=center&auto=format&q=80" alt="Illuminazione Residenziale" width="350" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <div class="low-section__text">
+                                <div class="low-section__subtitle">Casa</div>
+                                <div class="low-section__title">Illuminazione Residenziale</div>
+                                <div class="low-section__description">Soluzioni LED per la tua casa, dal soggiorno alla cucina</div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Secondo Box -->
+                    <div class="low-section__box">
+                        <a href="https://www.puntoluce.net/products?category=commercial">
+                            <div class="low-section__box-image">
+                                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=350&h=200&fit=crop&crop=center&auto=format&q=80" alt="Illuminazione Commerciale" width="350" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <div class="low-section__text">
+                                <div class="low-section__subtitle">Business</div>
+                                <div class="low-section__title">Illuminazione Commerciale</div>
+                                <div class="low-section__description">Sistemi professionali per negozi, uffici e spazi commerciali</div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Terzo Box -->
+                    <div class="low-section__box">
+                        <a href="https://www.puntoluce.net/products?category=outdoor">
+                            <div class="low-section__box-image">
+                                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=350&h=200&fit=crop&crop=center&auto=format&q=80" alt="Illuminazione Esterna" width="350" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <div class="low-section__text">
+                                <div class="low-section__subtitle">Outdoor</div>
+                                <div class="low-section__title">Illuminazione Esterna</div>
+                                <div class="low-section__description">Prodotti resistenti per giardini, terrazzi e facciate</div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Quarto Box -->
+                    <div class="low-section__box">
+                        <a href="https://www.puntoluce.net/products?category=industrial">
+                            <div class="low-section__box-image">
+                                <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=350&h=200&fit=crop&crop=center&auto=format&q=80" alt="Illuminazione Industriale" width="350" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <div class="low-section__text">
+                                <div class="low-section__subtitle">Industria</div>
+                                <div class="low-section__title">Illuminazione Industriale</div>
+                                <div class="low-section__description">Soluzioni robuste per capannoni e impianti industriali</div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Quinto Box -->
+                    <div class="low-section__box">
+                        <a href="https://www.puntoluce.net/products?category=smart">
+                            <div class="low-section__box-image">
+                                <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=350&h=200&fit=crop&crop=center&auto=format&q=80" alt="Illuminazione Smart" width="350" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <div class="low-section__text">
+                                <div class="low-section__subtitle">Tecnologia</div>
+                                <div class="low-section__title">Illuminazione Smart</div>
+                                <div class="low-section__description">Controllo intelligente con app e assistenti vocali</div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Sesto Box -->
+                    <div class="low-section__box">
+                        <a href="https://www.puntoluce.net/products?category=accessories">
+                            <div class="low-section__box-image">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=350&h=200&fit=crop&crop=center&auto=format&q=80" alt="Accessori LED" width="350" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <div class="low-section__text">
+                                <div class="low-section__subtitle">Componenti</div>
+                                <div class="low-section__title">Accessori LED</div>
+                                <div class="low-section__description">Alimentatori, controller e accessori per installazioni</div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>Punto Luce è un sito di WEB-E Srl - P.IVA 04108481203</p>
+
+        <!-- Blog Section -->
+        <div class="homepage__blog">
+            <div class="homepage__blog-container">
+                <div class="homepage__blogposts-title">Ultimi Articoli del Blog</div>
+                <div class="blog-iframe-container">
+                    <iframe id="blog-iframe" src="https://www.puntoluce.net/comefare/ultimi-articoli/" width="100%" frameborder="0" scrolling="no"></iframe>
+                </div>
+                <div class="homepage__blog-button">
+                    <a href="https://www.puntoluce.net/comefare/" class="button-to-blog" target="_blank" rel="noopener noreferrer">
+                        Visita il Blog
+                    </a>
+                </div>
+            </div>
         </div>
-    </footer>
+        
+        <!-- Promo Section -->
+        <div class="promo-section">
+            <div class="container">
+                <section class="splide" id="slider-promo-banners">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <a href="https://www.puntoluce.net/offers">
+                                    <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&h=300&fit=crop&crop=center&auto=format&q=80" alt="Promo Banner - Offerte Speciali" loading="lazy">
+                                </a>
+                            </li>
+                            <li class="splide__slide">
+                                <a href="https://www.puntoluce.net/new-products">
+                                    <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=600&h=300&fit=crop&crop=center&auto=format&q=80" alt="Promo Banner - Novità Tecnologiche" loading="lazy">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <div style="margin-bottom: 30px;" class="feedaty_widget">
+            <div style="text-align: center; padding: 40px 0; background-color: var(--bg-gray);">
+                <h3 style="color: var(--color-primary); font-size: 24px; margin-bottom: 20px;">Cosa dicono i nostri clienti</h3>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 48px; color: var(--color-accent);">⭐⭐⭐⭐⭐</div>
+                        <div style="font-size: 24px; font-weight: 700; color: var(--color-primary);">4.8/5</div>
+                        <div style="color: var(--color-neutral);">2,847 recensioni</div>
+                    </div>
+                    <div style="max-width: 600px; text-align: left;">
+                        <blockquote style="font-style: italic; font-size: 16px; color: var(--color-text-dark); margin: 0; padding: 20px; background-color: var(--bg-primary); border-radius: var(--radius); box-shadow: var(--shadow);">
+                            "Prodotti di ottima qualità e spedizione velocissima. Il supporto tecnico è sempre disponibile e competente. Consigliatissimo!"
+                            <footer style="margin-top: 10px; font-weight: 600; color: var(--color-primary);">- Marco R.</footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/splide/4.1.4/js/splide.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Splide - Banner principale
+        if (document.getElementById('slider-home-banners')) {
+            new Splide('#slider-home-banners', {
+                type: 'loop',
+                autoplay: true,
+                interval: 5000,
+                arrows: true,
+                pagination: true,
+                gap: '1rem'
+            }).mount();
+        }
+
+        // Splide - Prodotti
+        if (document.getElementById('slider-home-products')) {
+            new Splide('#slider-home-products', {
+                type: 'loop',
+                autoplay: true,
+                interval: 4000,
+                perPage: 4,
+                perMove: 1,
+                gap: '1rem',
+                breakpoints: {
+                    1024: { perPage: 3 },
+                    768: { perPage: 2 },
+                    480: { perPage: 1 }
+                }
+            }).mount();
+        }
+
+        // Splide - Promo banner
+        if (document.getElementById('slider-promo-banners')) {
+            new Splide('#slider-promo-banners', {
+                type: 'loop',
+                autoplay: true,
+                interval: 6000,
+                perPage: 2,
+                gap: '1rem',
+                breakpoints: {
+                    768: { perPage: 1 }
+                }
+            }).mount();
+        }
+
+        // Iframe blog altezza
+        const iframe = document.getElementById('blog-iframe');
+        if (iframe) {
+            iframe.onload = function () {
+                try {
+                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                    const height = iframeDoc.body.scrollHeight;
+                    iframe.style.height = height + 'px';
+                } catch (e) {
+                    iframe.style.height = '400px';
+                }
+            };
+        }
+
+        // Toggle side menu
+        document.getElementById('overlay').addEventListener('click', function () {
+            toggleSideMenu();
+        });
+
+        // Validazione form di ricerca
+        document.querySelector('.header__search-form').addEventListener('submit', function (e) {
+            const keywords = document.querySelector('.header__search-box').value;
+            if (!keywords.trim()) {
+                e.preventDefault();
+                alert('Inserisci una parola chiave per la ricerca');
+            }
+        });
+
+        // Redirect pulsanti account e carrello
+        document.querySelector('.header__account-button').addEventListener('click', function () {
+            window.location.href = 'https://www.puntoluce.net/account';
+        });
+
+        document.querySelector('.header__cart').addEventListener('click', function () {
+            window.location.href = 'https://www.puntoluce.net/cart';
+        });
+
+        // Tooltip per il pulsante home
+        const homeBtn = document.querySelector('.home-btn');
+        if (homeBtn) {
+            homeBtn.title = 'Torna alla selezione (ESC)';
+        }
+
+        // Navigazione con tastiera
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' || e.key.toLowerCase() === 'h') {
+                window.location.href = 'index.html';
+            }
+            const key = parseInt(e.key);
+            if (key >= 1 && key <= 5) {
+                window.location.href = `proposal${key}.html`;
+            }
+        });
+    });
+
+    // Funzioni globali
+    function toggleSideMenu() {
+        const sideMenu = document.getElementById('side-menu');
+        const html = document.documentElement;
+        sideMenu.classList.toggle('design-isopen');
+        html.classList.toggle('design-panel-isopen');
+    }
+
+    function toggleDropdown(event, element) {
+        event.preventDefault();
+        const subcategories = element.nextElementSibling;
+        const toggleIcon = element.querySelector('.toggle-icon');
+        const isVisible = subcategories.style.display === 'block';
+        subcategories.style.display = isVisible ? 'none' : 'block';
+        toggleIcon.style.transform = isVisible ? 'rotate(45deg)' : 'rotate(90deg)';
+    }
+</script>
+
 </body>
 </html>
