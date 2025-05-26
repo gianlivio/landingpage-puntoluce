@@ -1,0 +1,1951 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta 3 - Professional | Punto Luce</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Georgia:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Splide CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/splide/4.1.4/css/splide.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-primary: #037dd3;
+            --color-accent: #ffbe00;
+            --color-dark: #1F1F2E;
+            --color-text: #414151;
+            --color-border: #B9B9C8;
+            --color-white: #ffffff;
+            --color-gray: #f7f7f7;
+            --color-neutral: #525252;
+            --color-success: #059669;
+            --color-danger: #e11d48;
+            --shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
+            --radius-large: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--color-white);
+            color: var(--color-dark);
+            line-height: 1.6;
+        }
+
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+        }
+
+        /* Back button */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            color: var(--color-dark);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .back-button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: var(--color-white);
+            position: sticky;
+            z-index: 25;
+            top: 0;
+            left: 0;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-bar {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .header-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stars {
+            color: var(--color-accent);
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            background: white;
+            position: relative;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 40px;
+            position: relative;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 50px 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-box:focus {
+            border-color: var(--color-primary);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: var(--color-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--color-primary);
+        }
+
+        .cart-badge {
+            background: var(--color-accent);
+            color: var(--color-dark);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        /* Secondary Navigation */
+        .secondary-nav {
+            background: #f8f9fa;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .secondary-nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            padding: 0 20px;
+        }
+
+        .nav-item {
+            padding: 15px 20px;
+            color: var(--color-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-item:hover {
+            background: white;
+            color: var(--color-primary);
+        }
+
+        /* Hero Banner Section - ORIGINALE FUNZIONANTE */
+        .hero-banner {
+            max-width: 1400px;
+            margin: 30px auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* Carousel per il banner orizzontale */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            border-radius: var(--radius-large);
+            box-shadow: var(--shadow);
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide-1 {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300"><defs><linearGradient id="slide1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:%23037dd3;stop-opacity:1" /><stop offset="100%" style="stop-color:%23254575;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(%23slide1)"/><text x="400" y="130" text-anchor="middle" font-size="32" fill="white" font-family="Arial" font-weight="bold">HAI BISOGNO DI AIUTO?</text><text x="400" y="170" text-anchor="middle" font-size="18" fill="%23ffbe00" font-family="Arial">TI ASSISTIAMO IN OGNI FASE DELL\'ACQUISTO!</text></svg>');
+        }
+
+        .carousel-slide-2 {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300"><defs><linearGradient id="slide2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:%23ffbe00;stop-opacity:1" /><stop offset="100%" style="stop-color:%23ff8f00;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(%23slide2)"/><text x="400" y="130" text-anchor="middle" font-size="32" fill="white" font-family="Arial" font-weight="bold">SPEDIZIONE GRATUITA</text><text x="400" y="170" text-anchor="middle" font-size="18" fill="%23e65100" font-family="Arial">Per ordini superiori a 50€</text></svg>');
+        }
+
+        .carousel-slide-3 {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300"><defs><linearGradient id="slide3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:%234caf50;stop-opacity:1" /><stop offset="100%" style="stop-color:%23388e3c;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(%23slide3)"/><text x="400" y="130" text-anchor="middle" font-size="32" fill="white" font-family="Arial" font-weight="bold">PAGAMENTI SICURI</text><text x="400" y="170" text-anchor="middle" font-size="18" fill="%23c8e6c9" font-family="Arial">PayPal, Carte di Credito, Bonifico</text></svg>');
+        }
+
+        /* Indicatori carousel */
+        .carousel-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 4;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-indicator.active {
+            background: white;
+            transform: scale(1.3);
+        }
+
+        /* Frecce navigazione */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.3);
+            border: none;
+            color: white;
+            font-size: 24px;
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 4;
+            border-radius: 50%;
+        }
+
+        .carousel-nav:hover {
+            background: rgba(0,0,0,0.5);
+        }
+
+        .carousel-prev {
+            left: 15px;
+        }
+
+        .carousel-next {
+            right: 15px;
+        }
+
+        /* High Section - Banner Cards */
+        .high-section {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 2fr;
+            gap: 20px;
+        }
+
+        .high-section-box {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-large);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            min-height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .high-section-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .high-section-box:nth-child(1) {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23e3f2fd;stop-opacity:1" /><stop offset="100%" style="stop-color:%23bbdefb;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(%23grad1)"/><circle cx="200" cy="125" r="50" fill="%23037dd3" opacity="0.3"/><text x="200" y="140" text-anchor="middle" font-size="18" fill="%23037dd3" font-family="Arial" font-weight="bold">Condizionatori</text></svg>');
+        }
+
+        .high-section-box:nth-child(2) {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250"><defs><linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23fff3e0;stop-opacity:1" /><stop offset="100%" style="stop-color:%23ffe0b2;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(%23grad2)"/><polygon points="200,75 220,115 180,115" fill="%23ffbe00" opacity="0.6"/><circle cx="200" cy="140" r="12" fill="%23ff8f00"/><text x="200" y="190" text-anchor="middle" font-size="18" fill="%23e65100" font-family="Arial" font-weight="bold">Poldina Zafferano</text></svg>');
+        }
+
+        .high-section-box:nth-child(3) {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250"><defs><linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23e8f5e8;stop-opacity:1" /><stop offset="100%" style="stop-color:%23c8e6c9;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(%23grad3)"/><rect x="350" y="100" width="100" height="50" rx="25" fill="%234caf50" opacity="0.4"/><circle cx="400" cy="125" r="15" fill="%23388e3c"/><text x="400" y="190" text-anchor="middle" font-size="18" fill="%232e7d32" font-family="Arial" font-weight="bold">Rilevatori Gas e Monossido</text></svg>');
+        }
+
+        .high-section-box a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Products Section */
+        .products-section {
+            background-color: var(--color-gray);
+            padding: 60px 0;
+        }
+
+        .products-title {
+            text-align: center;
+            color: var(--color-primary);
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        /* Product Card Styles */
+        .product-card {
+            background-color: var(--color-white);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+            width: 220px;
+            margin: 0 10px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--color-accent);
+            color: var(--color-dark);
+            padding: 4px 8px;
+            border-radius: var(--radius);
+            font-size: 12px;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .product-badge--new {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .product-badge--sale {
+            background-color: var(--color-danger);
+            color: white;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-info h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--color-text);
+        }
+
+        .product-info .price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--color-primary);
+        }<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta 3 - Professional | Punto Luce</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Georgia:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Splide CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/splide/4.1.4/css/splide.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-primary: #037dd3;
+            --color-accent: #ffbe00;
+            --color-dark: #1F1F2E;
+            --color-text: #414151;
+            --color-border: #B9B9C8;
+            --color-white: #ffffff;
+            --color-gray: #f7f7f7;
+            --color-neutral: #525252;
+            --color-success: #059669;
+            --color-danger: #e11d48;
+            --shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
+            --radius-large: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--color-white);
+            color: var(--color-dark);
+            line-height: 1.6;
+        }
+
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+        }
+
+        /* Back button */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            color: var(--color-dark);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .back-button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: var(--color-white);
+            position: sticky;
+            z-index: 25;
+            top: 0;
+            left: 0;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-bar {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* Header Bar - 3 sezioni */
+        .header-bar-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            gap: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-self: start;
+        }
+
+        .contact-info a {
+            color: inherit;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-self: center;
+            text-align: center;
+        }
+
+        .stars {
+            color: var(--color-accent);
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-self: end;
+            position: relative;
+        }
+
+        .language-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .language-btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .language-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .language-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            color: var(--color-dark);
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            min-width: 150px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+
+        .language-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: var(--color-dark);
+            transition: background 0.3s ease;
+        }
+
+        .language-option:hover {
+            background: var(--color-gray);
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            background: white;
+            position: relative;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 40px;
+            position: relative;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 50px 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-box:focus {
+            border-color: var(--color-primary);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: var(--color-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--color-primary);
+        }
+
+        .cart-badge {
+            background: var(--color-accent);
+            color: var(--color-dark);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        /* Secondary Navigation */
+        .secondary-nav {
+            background: #f8f9fa;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .secondary-nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            padding: 0 20px;
+        }
+
+        .nav-item {
+            padding: 15px 20px;
+            color: var(--color-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-item:hover {
+            background: white;
+            color: var(--color-primary);
+        }
+
+        /* Hero Banner Section - ORIGINALE FUNZIONANTE */
+        .hero-banner {
+            max-width: 1400px;
+            margin: 30px auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* Carousel per il banner orizzontale */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            border-radius: var(--radius-large);
+            box-shadow: var(--shadow);
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide-1 {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300"><defs><linearGradient id="slide1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:%23037dd3;stop-opacity:1" /><stop offset="100%" style="stop-color:%23254575;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(%23slide1)"/><text x="400" y="130" text-anchor="middle" font-size="32" fill="white" font-family="Arial" font-weight="bold">HAI BISOGNO DI AIUTO?</text><text x="400" y="170" text-anchor="middle" font-size="18" fill="%23ffbe00" font-family="Arial">TI ASSISTIAMO IN OGNI FASE DELL\'ACQUISTO!</text></svg>');
+        }
+
+        .carousel-slide-2 {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300"><defs><linearGradient id="slide2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:%23ffbe00;stop-opacity:1" /><stop offset="100%" style="stop-color:%23ff8f00;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(%23slide2)"/><text x="400" y="130" text-anchor="middle" font-size="32" fill="white" font-family="Arial" font-weight="bold">SPEDIZIONE GRATUITA</text><text x="400" y="170" text-anchor="middle" font-size="18" fill="%23e65100" font-family="Arial">Per ordini superiori a 50€</text></svg>');
+        }
+
+        .carousel-slide-3 {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300"><defs><linearGradient id="slide3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:%234caf50;stop-opacity:1" /><stop offset="100%" style="stop-color:%23388e3c;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(%23slide3)"/><text x="400" y="130" text-anchor="middle" font-size="32" fill="white" font-family="Arial" font-weight="bold">PAGAMENTI SICURI</text><text x="400" y="170" text-anchor="middle" font-size="18" fill="%23c8e6c9" font-family="Arial">PayPal, Carte di Credito, Bonifico</text></svg>');
+        }
+
+        /* Indicatori carousel */
+        .carousel-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 4;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-indicator.active {
+            background: white;
+            transform: scale(1.3);
+        }
+
+        /* Frecce navigazione */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.3);
+            border: none;
+            color: white;
+            font-size: 24px;
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 4;
+            border-radius: 50%;
+        }
+
+        .carousel-nav:hover {
+            background: rgba(0,0,0,0.5);
+        }
+
+        .carousel-prev {
+            left: 15px;
+        }
+
+        .carousel-next {
+            right: 15px;
+        }
+
+        /* High Section - Banner Cards */
+        .high-section {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 2fr;
+            gap: 20px;
+        }
+
+        .high-section-box {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-large);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            min-height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .high-section-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .high-section-box:nth-child(1) {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23e3f2fd;stop-opacity:1" /><stop offset="100%" style="stop-color:%23bbdefb;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(%23grad1)"/><circle cx="200" cy="125" r="50" fill="%23037dd3" opacity="0.3"/><text x="200" y="140" text-anchor="middle" font-size="18" fill="%23037dd3" font-family="Arial" font-weight="bold">Condizionatori</text></svg>');
+        }
+
+        .high-section-box:nth-child(2) {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250"><defs><linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23fff3e0;stop-opacity:1" /><stop offset="100%" style="stop-color:%23ffe0b2;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(%23grad2)"/><polygon points="200,75 220,115 180,115" fill="%23ffbe00" opacity="0.6"/><circle cx="200" cy="140" r="12" fill="%23ff8f00"/><text x="200" y="190" text-anchor="middle" font-size="18" fill="%23e65100" font-family="Arial" font-weight="bold">Poldina Zafferano</text></svg>');
+        }
+
+        .high-section-box:nth-child(3) {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250"><defs><linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23e8f5e8;stop-opacity:1" /><stop offset="100%" style="stop-color:%23c8e6c9;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(%23grad3)"/><rect x="350" y="100" width="100" height="50" rx="25" fill="%234caf50" opacity="0.4"/><circle cx="400" cy="125" r="15" fill="%23388e3c"/><text x="400" y="190" text-anchor="middle" font-size="18" fill="%232e7d32" font-family="Arial" font-weight="bold">Rilevatori Gas e Monossido</text></svg>');
+        }
+
+        .high-section-box a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Products Section */
+        .products-section {
+            background-color: var(--color-gray);
+            padding: 60px 0;
+        }
+
+        .products-title {
+            text-align: center;
+            color: var(--color-primary);
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        /* Products Section - Carousel identico */
+        .products-section {
+            background-color: var(--color-gray);
+            padding: 60px 0;
+        }
+
+        .products-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .products-title {
+            text-align: center;
+            color: var(--color-primary);
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        /* Products Carousel Container */
+        .products-carousel-container {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+            border-radius: var(--radius-large);
+        }
+
+        .products-carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .products-carousel-slide.active {
+            opacity: 1;
+        }
+
+        .products-slide-1 {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .products-slide-2 {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+        }
+
+        .products-slide-3 {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+        }
+
+        /* Products Carousel Navigation */
+        .products-carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.3);
+            border: none;
+            color: white;
+            font-size: 24px;
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 4;
+            border-radius: 50%;
+        }
+
+        .products-carousel-nav:hover {
+            background: rgba(0,0,0,0.5);
+        }
+
+        .products-carousel-prev {
+            left: 15px;
+        }
+
+        .products-carousel-next {
+            right: 15px;
+        }
+
+        .products-carousel-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 4;
+        }
+
+        .products-carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .products-carousel-indicator.active {
+            background: white;
+            transform: scale(1.3);
+        }
+
+        /* Categories Section */
+        .categories-section {
+            padding: 60px 0;
+            background: var(--color-white);
+        }
+
+        .categories-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .categories-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 50px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: var(--color-white);
+            border-radius: var(--radius-large);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .category-content {
+            padding: 20px;
+        }
+
+        .category-subtitle {
+            font-size: 14px;
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .category-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-dark);
+            margin-bottom: 10px;
+        }
+
+        .category-description {
+            font-size: 14px;
+            color: var(--color-neutral);
+            line-height: 1.5;
+        }
+
+        /* Blog Section */
+        .blog-section {
+            padding: 60px 0;
+            background-color: var(--color-gray);
+        }
+
+        .blog-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .blog-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 30px;
+        }
+
+        .blog-iframe-container {
+            margin-bottom: 30px;
+            border-radius: var(--radius-large);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .blog-iframe-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        .blog-button {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: 15px 30px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .blog-button:hover {
+            background-color: #0269c2;
+            transform: translateY(-2px);
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            padding: 60px 0;
+            background-color: var(--color-white);
+        }
+
+        .reviews-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .reviews-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 40px;
+        }
+
+        .reviews-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .reviews-stats {
+            text-align: center;
+        }
+
+        .reviews-stars {
+            font-size: 48px;
+            color: var(--color-accent);
+            margin-bottom: 10px;
+        }
+
+        .reviews-score {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 5px;
+        }
+
+        .reviews-count {
+            color: var(--color-neutral);
+            font-size: 16px;
+        }
+
+        .reviews-testimonial {
+            max-width: 500px;
+            background: var(--color-gray);
+            padding: 30px;
+            border-radius: var(--radius-large);
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            font-size: 16px;
+            color: var(--color-text);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .high-section {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+            
+            .high-section-box:nth-child(3) {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-bar-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-container {
+                max-width: 100%;
+                margin: 0;
+            }
+            
+            .secondary-nav-container {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-item {
+                padding: 10px 15px;
+            }
+            
+            .high-section {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .high-section-box {
+                min-height: 200px;
+            }
+
+            .reviews-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .back-button {
+                top: 10px;
+                left: 10px;
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+
+            .hero-banner,
+            .high-section {
+                padding: 0 15px;
+            }
+
+            .carousel-slide-img {
+                height: 200px;
+            }
+
+            .high-section-box {
+                min-height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        Torna alle Proposte
+    </a>
+
+    <!-- Header -->
+    <header class="header">
+        <!-- Top Bar CON 3 SEZIONI -->
+        <div class="header-bar">
+            <div class="header-bar-content">
+                <!-- Sinistra: Telefono -->
+                <div class="contact-info">
+                    <a href="tel:+3905119900957">
+                        <i class="fas fa-phone"></i>
+                        <span>+39 0511990957</span>
+                    </a>
+                </div>
+                
+                <!-- Centro: Recensioni -->
+                <div class="rating">
+                    <span>Eccellente</span>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <span>8.776 Recensioni</span>
+                </div>
+                
+                <!-- Destra: Lingua -->
+                <div class="language-selector">
+                    <div class="language-dropdown">
+                        <button class="language-btn" onclick="toggleLanguageMenu()">
+                            🇮🇹 Italiano
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="language-menu" id="languageMenu">
+                            <a href="#" class="language-option">🇮🇹 Italiano</a>
+                            <a href="#" class="language-option">🇬🇧 English</a>
+                            <a href="#" class="language-option">🇫🇷 Français</a>
+                            <a href="#" class="language-option">🇩🇪 Deutsch</a>
+                            <a href="#" class="language-option">🇪🇸 Español</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="main-nav">
+            <div class="nav-container">
+                <img src="images_index/logo_index.jpg" alt="Punto Luce" class="logo">
+                
+                <div class="search-container">
+                    <input type="text" class="search-box" placeholder="Cerca prodotti...">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                
+                <div class="nav-actions">
+                    <a href="https://www.puntoluce.net/" class="nav-link" target="_blank">
+                        <i class="fas fa-user"></i>
+                        Account
+                    </a>
+                    <a href="https://shop.puntoluce.net/" class="nav-link" target="_blank">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-badge">0</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Secondary Navigation -->
+        <nav class="secondary-nav">
+            <div class="secondary-nav-container">
+                <a href="#" class="nav-item">Reparti</a>
+                <a href="#" class="nav-item">Promozioni</a>
+                <a href="#" class="nav-item">Novità</a>
+                <a href="#" class="nav-item">Pagamenti</a>
+                <a href="#" class="nav-item">Agevolazioni Fiscali</a>
+                <a href="#" class="nav-item">Diritto di Recesso</a>
+                <a href="#" class="nav-item">Spedizioni</a>
+                <a href="#" class="nav-item">Blog</a>
+                <a href="#" class="nav-item">Negozio</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Banner ORIGINALE FUNZIONANTE -->
+    <section class="hero-banner">
+        <div class="carousel-container">
+            <div class="carousel-slide carousel-slide-1 active"></div>
+            <div class="carousel-slide carousel-slide-2"></div>
+            <div class="carousel-slide carousel-slide-3"></div>
+            
+            <button class="carousel-nav carousel-prev">‹</button>
+            <button class="carousel-nav carousel-next">›</button>
+            
+            <div class="carousel-indicators">
+                <div class="carousel-indicator active" data-slide="0"></div>
+                <div class="carousel-indicator" data-slide="1"></div>
+                <div class="carousel-indicator" data-slide="2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- High Section - Banner Cards -->
+    <section class="high-section">
+        <div class="high-section-box">
+            <a href="https://shop.puntoluce.net/" target="_blank"></a>
+        </div>
+        <div class="high-section-box">
+            <a href="https://www.puntoluce.net/" target="_blank"></a>
+        </div>
+        <div class="high-section-box">
+            <a href="https://shop.puntoluce.net/" target="_blank"></a>
+        </div>
+    </section>
+
+    <!-- Products Section CON CAROUSEL IDENTICO -->
+    <section class="products-section">
+        <div class="products-container">
+            <h2 class="products-title">Prodotti in Tendenza</h2>
+            <div class="products-carousel-container">
+                <div class="products-carousel-slide products-slide-1 active">
+                    <div class="product-card">
+                        <div class="product-badge product-badge--new">Nuovo</div>
+                        <a href="https://shop.puntoluce.net/" target="_blank">
+                            <img src="https://images.unsplash.com/photo-1619641805634-c3bc34f4bdcc?w=250&h=200&fit=crop&crop=center&auto=format&q=80" alt="Striscia LED 5m">
+                            <div class="product-info">
+                                <h3>Striscia LED 5m</h3>
+                                <p class="price">€29,99</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-badge product-badge--sale">Offerta</div>
+                        <a href="https://shop.puntoluce.net/" target="_blank">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=250&h=200&fit=crop&crop=center&auto=format&q=80" alt="Lampadina LED E27">
+                            <div class="product-info">
+                                <h3>Lampadina LED E27</h3>
+                                <p class="price">€12,99</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="product-card">
+                        <a href="https://shop.puntoluce.net/" target="_blank">
+                            <img src="https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=250&h=200&fit=crop&crop=center&auto=format&q=80" alt="Faretto LED 10W">
+                            <div class="product-info">
+                                <h3>Faretto LED 10W</h3>
+                                <p class="price">€19,99</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="product-card">
+                        <a href="https://shop.puntoluce.net/" target="_blank">
+                            <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=250&h=200&fit=crop&crop=center&auto=format&q=80" alt="Controller RGB">
+                            <div class="product-info">
+                                <h3>Controller RGB</h3>
+                                <p class="price">€35,99</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="products-carousel-slide products-slide-2">
+                    <div class="product-card">
+                        <a href="https://shop.puntoluce.net/" target="_blank">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=250&h=200&fit=crop&crop=center&auto=format&q=80" alt="Alimentatore LED">
+                            <div class="product-info">
+                                <h3>Alimentatore LED 60W</h3>
+                                <p class="price">€24,99</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-badge">Bestseller</div>
+                        <a href="https://shop.puntoluce.net/" target="_blank">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=250&h=200&fit=crop&crop=center&auto=format&q=80" alt="Pannello LED">
+                            <div class="product-info">
+                                <h3>Pannello LED 40W</h3>
+                                <p class="price">€42,99</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="product-card">
+                        <a href="https://shop.puntoluce.net/" target="_blank">
+                            <img src="https://images.unsplash.com/photo-1619641805634-c3bc34f4bdcc?w=250&h=200&fit=crop&crop=center&auto=format&q=80" alt="Profilo Alluminio">
+                            <div class="product-info">
+                                <h3>Profilo Alluminio 2m</h3>
+                                <p class="price">€8,99</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-badge product-badge--sale">-20%</div>
+                        <a href="https://shop.puntoluce.net/" target="_blank">
+                            <img src="https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=250&h=200&fit=crop&crop=center&auto=format&q=80" alt="Dimmer LED">
+                            <div class="product-info">
+                                <h3>Dimmer LED Touch</h3>
+                                <p class="price">€16,99</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="products-carousel-slide products-slide-3">
+                    <div class="product-card">
+                        <div class="product-badge product-badge--new">Novità</div>
+                        <a href="https://shop.puntoluce.net/" target="_blank">
+                            <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=250&h=200&fit=crop&crop=center&auto=format&q=80" alt="Smart Controller">
+                            <div class="product-info">
+                                <h3>Smart Controller WiFi</h3>
+                                <p class="price">€59,99</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="product-card">
+                        <a href="https://shop.puntoluce.net/" target="_blank">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=250&h=200&fit=crop&crop=center&auto=format&q=80" alt="Sensore Movimento">
+                            <div class="product-info">
+                                <h3>Sensore Movimento PIR</h3>
+                                <p class="price">€14,99</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="product-card">
+                        <a href="https://shop.puntoluce.net/" target="_blank">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=250&h=200&fit=crop&crop=center&auto=format&q=80" alt="Lampada Sospensione">
+                            <div class="product-info">
+                                <h3>Lampada Sospensione LED</h3>
+                                <p class="price">€89,99</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-badge">Eco</div>
+                        <a href="https://shop.puntoluce.net/" target="_blank">
+                            <img src="https://images.unsplash.com/photo-1619641805634-c3bc34f4bdcc?w=250&h=200&fit=crop&crop=center&auto=format&q=80" alt="Tubo LED">
+                            <div class="product-info">
+                                <h3>Tubo LED T8 120cm</h3>
+                                <p class="price">€22,99</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <button class="products-carousel-nav products-carousel-prev">‹</button>
+                <button class="products-carousel-nav products-carousel-next">›</button>
+                
+                <div class="products-carousel-indicators">
+                    <div class="products-carousel-indicator active" data-slide="0"></div>
+                    <div class="products-carousel-indicator" data-slide="1"></div>
+                    <div class="products-carousel-indicator" data-slide="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="categories-container">
+            <h2 class="categories-title">Soluzioni per ogni esigenza</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <a href="https://shop.puntoluce.net/" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=350&h=200&fit=crop&crop=center&auto=format&q=80" alt="Illuminazione Residenziale">
+                        <div class="category-content">
+                            <div class="category-subtitle">Casa</div>
+                            <div class="category-title">Illuminazione Residenziale</div>
+                            <div class="category-description">Soluzioni LED per la tua casa, dal soggiorno alla cucina</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="category-card">
+                    <a href="https://shop.puntoluce.net/" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=350&h=200&fit=crop&crop=center&auto=format&q=80" alt="Illuminazione Commerciale">
+                        <div class="category-content">
+                            <div class="category-subtitle">Business</div>
+                            <div class="category-title">Illuminazione Commerciale</div>
+                            <div class="category-description">Sistemi professionali per negozi, uffici e spazi commerciali</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="category-card">
+                    <a href="https://shop.puntoluce.net/" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=350&h=200&fit=crop&crop=center&auto=format&q=80" alt="Illuminazione Esterna">
+                        <div class="category-content">
+                            <div class="category-subtitle">Outdoor</div>
+                            <div class="category-title">Illuminazione Esterna</div>
+                            <div class="category-description">Prodotti resistenti per giardini, terrazzi e facciate</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="category-card">
+                    <a href="https://shop.puntoluce.net/" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=350&h=200&fit=crop&crop=center&auto=format&q=80" alt="Illuminazione Industriale">
+                        <div class="category-content">
+                            <div class="category-subtitle">Industria</div>
+                            <div class="category-title">Illuminazione Industriale</div>
+                            <div class="category-description">Soluzioni robuste per capannoni e impianti industriali</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="category-card">
+                    <a href="https://shop.puntoluce.net/" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=350&h=200&fit=crop&crop=center&auto=format&q=80" alt="Illuminazione Smart">
+                        <div class="category-content">
+                            <div class="category-subtitle">Tecnologia</div>
+                            <div class="category-title">Illuminazione Smart</div>
+                            <div class="category-description">Controllo intelligente con app e assistenti vocali</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="category-card">
+                    <a href="https://shop.puntoluce.net/" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=350&h=200&fit=crop&crop=center&auto=format&q=80" alt="Accessori LED">
+                        <div class="category-content">
+                            <div class="category-subtitle">Componenti</div>
+                            <div class="category-title">Accessori LED</div>
+                            <div class="category-description">Alimentatori, controller e accessori per installazioni</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="blog-container">
+            <h2 class="blog-title">Ultimi Articoli del Blog</h2>
+            <div class="blog-iframe-container">
+                <iframe src="https://www.puntoluce.net/comefare/ultimi-articoli/" 
+                        width="100%" 
+                        height="400" 
+                        frameborder="0" 
+                        scrolling="no"
+                        title="Blog Punto Luce - Ultimi Articoli">
+                </iframe>
+            </div>
+            <a href="https://www.puntoluce.net/comefare/" class="blog-button" target="_blank">
+                <i class="fas fa-external-link-alt"></i>
+                Visita il Blog
+            </a>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="reviews-container">
+            <h2 class="reviews-title">Cosa dicono i nostri clienti</h2>
+            <div class="reviews-content">
+                <div class="reviews-stats">
+                    <div class="reviews-stars">⭐⭐⭐⭐⭐</div>
+                    <div class="reviews-score">4.8/5</div>
+                    <div class="reviews-count">8.776 recensioni</div>
+                </div>
+                <div class="reviews-testimonial">
+                    <p class="testimonial-text">
+                        "Prodotti di ottima qualità e spedizione velocissima. Il supporto tecnico è sempre disponibile e competente. 
+                        Ho acquistato diverse strisce LED e sono rimasto molto soddisfatto sia della qualità che del servizio clienti. 
+                        Consigliatissimo!"
+                    </p>
+                    <div class="testimonial-author">- Marco R., Cliente Verificato</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <section style="padding: 40px 0; text-align: center; background: var(--color-gray);">
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+            <a href="https://shop.puntoluce.net/" 
+               style="background: var(--color-primary); color: white; padding: 15px 30px; border-radius: var(--radius); text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 10px;" 
+               target="_blank"
+               onmouseover="this.style.background='#0269c2'; this.style.transform='translateY(-2px)'"
+               onmouseout="this.style.background='var(--color-primary)'; this.style.transform='translateY(0)'">
+                <i class="fas fa-store"></i>
+                Negozio Originale
+            </a>
+            <a href="https://www.puntoluce.net/" 
+               style="background: var(--color-accent); color: var(--color-dark); padding: 15px 30px; border-radius: var(--radius); text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 10px;" 
+               target="_blank"
+               onmouseover="this.style.background='#e6a800'; this.style.transform='translateY(-2px)'"
+               onmouseout="this.style.background='var(--color-accent)'; this.style.transform='translateY(0)'">
+                <i class="fas fa-globe"></i>
+                Sito Ufficiale
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer Info -->
+    <footer style="background: var(--color-dark); color: white; padding: 30px 0; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <p style="margin-bottom: 15px; font-size: 18px; font-weight: 600;">
+                <i class="fas fa-lightbulb" style="color: var(--color-accent); margin-right: 10px;"></i>
+                "Dove il buio non è mai di casa"
+            </p>
+            <p style="color: #ccc; font-size: 14px;">
+                Questa è la <strong>Proposta 3</strong> - Layout professionale che replica fedelmente la homepage originale di Punto Luce
+            </p>
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #444;">
+                <p style="color: #999; font-size: 12px;">
+                    <i class="fas fa-keyboard"></i>
+                    Navigazione rapida: Usa ESC per tornare alla selezione, oppure i tasti 1-5 per le altre proposte
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/splide/4.1.4/js/splide.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // CAROUSEL ORIGINALE FUNZIONANTE
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.carousel-slide');
+            const indicators = document.querySelectorAll('.carousel-indicator');
+            const totalSlides = slides.length;
+
+            function showSlide(index) {
+                // Hide all slides
+                slides.forEach(slide => slide.classList.remove('active'));
+                indicators.forEach(indicator => indicator.classList.remove('active'));
+                
+                // Show current slide
+                slides[index].classList.add('active');
+                indicators[index].classList.add('active');
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                showSlide(currentSlide);
+            }
+
+            // Auto-advance carousel ogni 5 secondi
+            setInterval(nextSlide, 5000);
+
+            // Navigation buttons
+            if (document.querySelector('.carousel-next')) {
+                document.querySelector('.carousel-next').addEventListener('click', nextSlide);
+            }
+            if (document.querySelector('.carousel-prev')) {
+                document.querySelector('.carousel-prev').addEventListener('click', prevSlide);
+            }
+
+            // Indicator clicks
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentSlide = index;
+                    showSlide(currentSlide);
+                });
+            });
+
+            // PRODUCTS CAROUSEL - IDENTICO AL BANNER
+            let currentProductsSlide = 0;
+            const productsSlides = document.querySelectorAll('.products-carousel-slide');
+            const productsIndicators = document.querySelectorAll('.products-carousel-indicator');
+            const totalProductsSlides = productsSlides.length;
+
+            function showProductsSlide(index) {
+                // Hide all slides
+                productsSlides.forEach(slide => slide.classList.remove('active'));
+                productsIndicators.forEach(indicator => indicator.classList.remove('active'));
+                
+                // Show current slide
+                productsSlides[index].classList.add('active');
+                productsIndicators[index].classList.add('active');
+            }
+
+            function nextProductsSlide() {
+                currentProductsSlide = (currentProductsSlide + 1) % totalProductsSlides;
+                showProductsSlide(currentProductsSlide);
+            }
+
+            function prevProductsSlide() {
+                currentProductsSlide = (currentProductsSlide - 1 + totalProductsSlides) % totalProductsSlides;
+                showProductsSlide(currentProductsSlide);
+            }
+
+            // Auto-advance products carousel ogni 4 secondi
+            setInterval(nextProductsSlide, 4000);
+
+            // Products Navigation buttons
+            if (document.querySelector('.products-carousel-next')) {
+                document.querySelector('.products-carousel-next').addEventListener('click', nextProductsSlide);
+            }
+            if (document.querySelector('.products-carousel-prev')) {
+                document.querySelector('.products-carousel-prev').addEventListener('click', prevProductsSlide);
+            }
+
+            // Products Indicator clicks
+            productsIndicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentProductsSlide = index;
+                    showProductsSlide(currentProductsSlide);
+                });
+            });
+
+            // Language Dropdown
+            window.toggleLanguageMenu = function() {
+                const menu = document.getElementById('languageMenu');
+                menu.classList.toggle('show');
+            };
+
+            // Close language menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const dropdown = document.querySelector('.language-dropdown');
+                const menu = document.getElementById('languageMenu');
+                if (!dropdown.contains(event.target)) {
+                    menu.classList.remove('show');
+                }
+            });
+
+            // Search functionality
+            document.querySelector('.search-btn').addEventListener('click', (e) => {
+                e.preventDefault();
+                const searchTerm = document.querySelector('.search-box').value;
+                if (searchTerm.trim()) {
+                    window.open(`https://www.puntoluce.net/search?q=${encodeURIComponent(searchTerm)}`, '_blank');
+                } else {
+                    alert('Inserisci un termine di ricerca');
+                }
+            });
+
+            // Search on Enter key
+            document.querySelector('.search-box').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    document.querySelector('.search-btn').click();
+                }
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' || e.key.toLowerCase() === 'h') {
+                    window.location.href = 'index.html';
+                }
+                const key = parseInt(e.key);
+                if (key >= 1 && key <= 5) {
+                    window.location.href = `proposal${key}.html`;
+                }
+            });
+
+            // Smooth scroll for internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Add loading states for external links
+            document.querySelectorAll('a[target="_blank"]').forEach(link => {
+                link.addEventListener('click', function() {
+                    const originalText = this.innerHTML;
+                    this.innerHTML = originalText.replace(/(<i[^>]*><\/i>\s*)?(.+)/, '$1<i class="fas fa-spinner fa-spin"></i> Caricamento...');
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                    }, 2000);
+                });
+            });
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Animate cards on scroll
+            document.querySelectorAll('.category-card, .product-card, .high-section-box').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+
+            // Console info for developers
+            console.log('%cProposta 3 - Professional Layout', 'color: #037dd3; font-size: 20px; font-weight: bold;');
+            console.log('%cLayout che replica fedelmente la homepage di Punto Luce', 'color: #666; font-size: 14px;');
+            console.log('%cNavigazione: ESC = Home, 1-5 = Altre proposte', 'color: #ffbe00; font-size: 12px;');
+        });
+
+        // Global functions for external use
+        window.PuntoLuce = {
+            version: '3.0.0',
+            proposal: 3,
+            scrollToTop: () => window.scrollTo({ top: 0, behavior: 'smooth' }),
+            goHome: () => window.location.href = 'index.html',
+            goToProposal: (num) => window.location.href = `proposal${num}.html`
+        };
+    </script>
+</body>
+</html>

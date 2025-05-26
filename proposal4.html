@@ -3,26 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Punto Luce - Materiale Elettrico Colorato e Moderno</title>
-    <meta name="description" content="Soluzioni elettriche ed elettroniche con design moderno e colorato per professionisti e privati">
+    <title>Proposta 4 - Dark Luxury | Punto Luce</title>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
     <style>
         :root {
-            --primary: #037dd3;
-            --secondary: #ff6b6b;
-            --accent: #ffbe00;
-            --dark: #2a2a2a;
-            --light: #f7f7f7;
-            --gradient: linear-gradient(135deg, var(--primary), var(--accent));
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --radius: 20px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --color-primary: #037dd3;
+            --color-accent: #ffbe00;
+            --color-secondary: #254575;
+            --color-light: #ffffff;
+            --color-gray: #f7f7f7;
+            --color-neutral: #525252;
+            --color-text: #2a2a2a;
+            --color-border: #e8e8e8;
+            --color-success: #059669;
+            --color-warning: #ca8a04;
+            --color-danger: #e11d48;
+            --gradient-primary: linear-gradient(135deg, #037dd3 0%, #254575 100%);
+            --gradient-accent: linear-gradient(135deg, #ffbe00 0%, #ffd700 100%);
+            --gradient-hero: linear-gradient(135deg, #f0f8ff 0%, #e3f2fd 50%, #fff3e0 100%);
+            --shadow-light: 0 4px 15px rgba(3, 125, 211, 0.1);
+            --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.15);
+            --radius: 8px;
+            --radius-large: 15px;
         }
 
         * {
@@ -31,54 +40,186 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--light);
-            color: var(--dark);
-            overflow-x: hidden;
+        html {
+            scroll-behavior: smooth;
         }
 
-        /* Proposals Navigation */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--color-light);
+            color: var(--color-text);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Light Background Pattern */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.03;
+            background-image: 
+                radial-gradient(circle at 25% 25%, var(--color-primary) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, var(--color-accent) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 49%, rgba(3,125,211,0.02) 50%, transparent 51%);
+            background-size: 400px 400px, 400px 400px, 50px 50px;
+            animation: patternMove 60s linear infinite;
+        }
+
+        @keyframes patternMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-50px, -50px); }
+        }
+
+        /* Floating Light Elements */
+        .luxury-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .luxury-orb {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(3, 125, 211, 0.08) 0%, rgba(255, 190, 0, 0.08) 100%);
+            opacity: 0.6;
+            animation: luxuryFloat 25s infinite ease-in-out;
+        }
+
+        .luxury-orb:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .luxury-orb:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 8s;
+        }
+
+        .luxury-orb:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 16s;
+        }
+
+        @keyframes luxuryFloat {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+                opacity: 0.1;
+            }
+            50% {
+                transform: translateY(-50px) scale(1.1);
+                opacity: 0.2;
+            }
+        }
+
+        /* Proposals Navigation - Stile chiaro Punto Luce */
         .proposals-nav {
             position: fixed;
             top: 20px;
             right: 20px;
             z-index: 2000;
-            background: white;
-            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-large);
             padding: 15px 20px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+
+        .proposals-nav:hover {
+            background: rgba(255, 255, 255, 0.98);
+            transform: scale(1.02);
+            box-shadow: var(--shadow-medium);
         }
 
         .proposals-container {
             display: flex;
             align-items: center;
             gap: 15px;
+            position: relative;
         }
 
+        /* Home Button */
         .home-btn {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 40px;
             height: 40px;
-            background: var(--primary);
+            background: var(--color-primary);
             color: white;
             border-radius: 50%;
             text-decoration: none;
-            transition: var(--transition);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1.1rem;
+            box-shadow: 0 3px 10px rgba(3, 125, 211, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .home-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--color-accent);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
+        }
+
+        .home-btn:hover::before {
+            width: 100%;
+            height: 100%;
         }
 
         .home-btn:hover {
-            background: var(--accent);
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(-10deg);
+            box-shadow: 0 5px 20px rgba(255, 190, 0, 0.4);
+        }
+
+        .home-btn:hover i {
+            position: relative;
+            z-index: 1;
+            color: var(--color-dark);
+        }
+
+        /* Divider */
+        .proposals-container::after {
+            content: '';
+            position: absolute;
+            left: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 25px;
+            width: 1px;
+            background: var(--color-border);
         }
 
         .proposals-label {
             font-size: 0.9rem;
             font-weight: 600;
-            color: var(--primary);
+            color: var(--color-accent);
+            white-space: nowrap;
         }
 
         .proposals-links {
@@ -95,219 +236,384 @@
             border-radius: 50%;
             text-decoration: none;
             font-weight: 600;
-            background: #f0f0f0;
-            color: var(--dark);
-            transition: var(--transition);
+            font-size: 0.9rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+        }
+
+        .proposal-link:not(.active) {
+            background: var(--color-dark-secondary);
+            color: var(--color-gray);
+            border-color: var(--color-border);
+        }
+
+        .proposal-link:not(.active):hover {
+            background: var(--color-accent);
+            color: var(--color-dark);
+            border-color: var(--color-accent);
+            transform: scale(1.1);
         }
 
         .proposal-link.active {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--color-primary), #0056b3);
             color: white;
+            border-color: var(--color-accent);
+            box-shadow: 0 5px 15px rgba(3, 125, 211, 0.3);
+            transform: scale(1.1);
         }
 
-        .proposal-link:hover:not(.active) {
-            background: var(--accent);
-            color: white;
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .proposals-nav {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                padding: 12px 15px;
+            }
+
+            .proposals-container {
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .proposals-label {
+                font-size: 0.8rem;
+            }
+
+            .proposal-link,
+            .home-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
+            }
+
+            .home-btn {
+                font-size: 0.9rem;
+            }
+
+            .proposals-container::after {
+                left: 50px;
+                height: 20px;
+            }
         }
 
-        /* Header */
-        .colorful-header {
-            background: white;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        @media (max-width: 480px) {
+            .proposals-label {
+                display: none;
+            }
+            
+            .proposals-container::after {
+                display: none;
+            }
         }
 
-        .header-container {
+        /* Header stile Punto Luce */
+        .header {
+            background: var(--color-light);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-light);
+        }
+
+        .header-content {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 20px 40px;
+            padding: 20px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
 
-        .logo-colorful {
-            height: 50px;
-            transition: var(--transition);
-        }
-
-        .logo-colorful:hover {
-            transform: rotate(-5deg) scale(1.05);
-        }
-
-        .nav-colorful {
+        .logo-container {
             display: flex;
-            gap: 30px;
+            align-items: center;
+            gap: 15px;
         }
 
-        .nav-colorful a {
-            color: var(--dark);
-            text-decoration: none;
+        .logo {
+            height: 50px;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 2px 8px rgba(3, 125, 211, 0.2));
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .brand-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
             font-weight: 600;
-            position: relative;
-            transition: var(--transition);
+            color: var(--color-primary);
         }
 
-        .nav-colorful a::after {
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--color-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-link::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
-            height: 3px;
-            background: var(--accent);
-            transition: var(--transition);
+            height: 2px;
+            background: var(--gradient-accent);
+            transition: width 0.3s ease;
         }
 
-        .nav-colorful a:hover::after {
+        .nav-link:hover {
+            color: var(--color-primary);
+        }
+
+        .nav-link:hover::after {
             width: 100%;
         }
 
-        .nav-colorful a:hover {
-            color: var(--primary);
+        .header-cta {
+            background: var(--gradient-primary);
+            color: var(--color-light);
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-light);
         }
 
-        /* Hero Section */
-        .colorful-hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 40px 80px;
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        } flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--color-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--color-accent);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .header-cta {
+            background: var(--gradient-primary);
+            color: var(--color-light);
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--glow-primary);
+        }
+
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 40px rgba(3, 125, 211, 0.5);
+        }
+
+        /* Hero Section stile Punto Luce */
+        .hero {
+            padding: 80px 20px;
+            background: var(--gradient-hero);
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .hero-bg {
+        .hero::before {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient);
-            z-index: -1;
-            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(3, 125, 211, 0.05) 0%, transparent 70%);
+            animation: heroGlow 20s ease-in-out infinite;
         }
 
         .hero-content {
-            max-width: 1400px;
+            max-width: 900px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
+            position: relative;
+            z-index: 2;
         }
 
-        .hero-text {
-            color: white;
+        .hero-badge {
+            background: var(--color-light);
+            border: 2px solid var(--color-primary);
+            color: var(--color-primary);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 40px;
+            animation: slideInDown 0.8s ease-out;
+            box-shadow: var(--shadow-light);
         }
 
         .hero-title {
-            font-family: 'Fredoka One', cursive;
-            font-size: 4rem;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 30px;
             line-height: 1.1;
-            margin-bottom: 20px;
+            color: var(--color-text);
+            animation: slideInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-title .accent-text {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
+            font-size: 1.4rem;
+            color: var(--color-neutral);
+            margin-bottom: 50px;
+            line-height: 1.6;
+            animation: slideInUp 0.8s ease-out 0.4s both;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 20px;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideInUp 0.8s ease-out 0.6s both;
         }
 
-        .colorful-btn {
-            padding: 15px 30px;
+        .btn {
+            padding: 18px 35px;
             border-radius: 50px;
-            text-decoration: none;
             font-weight: 600;
-            transition: var(--transition);
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-        }
-
-        .primary-btn {
-            background: white;
-            color: var(--primary);
-            box-shadow: var(--shadow);
-        }
-
-        .primary-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .secondary-btn {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .secondary-btn:hover {
-            background: white;
-            color: var(--primary);
-        }
-
-        .hero-image {
+            gap: 12px;
+            cursor: pointer;
+            border: none;
             position: relative;
-            animation: float 6s ease-in-out infinite;
+            overflow: hidden;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .hero-image img {
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
             width: 100%;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
         }
 
-        /* Features */
-        .colorful-features {
-            padding: 100px 40px;
-            background: white;
+        .btn:hover::before {
+            left: 100%;
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--color-light);
+            box-shadow: var(--shadow-light);
         }
 
-        .section-title {
-            font-family: 'Fredoka One', cursive;
-            font-size: 3rem;
-            color: var(--primary);
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-secondary {
+            background: var(--color-light);
+            border: 2px solid var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-primary);
+            color: var(--color-light);
+            transform: translateY(-3px);
+        }
+
+        /* Features Section stile Punto Luce */
+        .features {
+            padding: 80px 20px;
+            background: var(--color-light);
+            position: relative;
+        }
+
+        .section-badge {
+            background: var(--color-primary);
+            color: var(--color-light);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
             margin-bottom: 20px;
         }
 
-        .section-subtitle {
-            color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 10px;
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--color-text);
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--color-neutral);
+            max-width: 600px;
             margin: 0 auto;
         }
 
         .feature-card {
-            background: var(--light);
-            border-radius: var(--radius);
-            padding: 40px 30px;
-            text-align: center;
-            transition: var(--transition);
+            background: var(--color-light);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-large);
+            padding: 40px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
         }
@@ -317,148 +623,512 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 5px;
-            height: 0;
-            background: var(--gradient);
-            transition: var(--transition);
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-hero);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .feature-card:hover::before {
-            height: 100%;
+            opacity: 1;
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-heavy);
+            border-color: var(--color-primary);
         }
 
         .feature-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            background: var(--gradient);
-            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-large);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.5rem;
+            margin-bottom: 25px;
+            font-size: 28px;
+            color: var(--color-light);
+            position: relative;
+            z-index: 1;
         }
 
         .feature-title {
-            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
             margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        /* CTA */
-        .colorful-cta {
-            padding: 100px 40px;
-            background: var(--light);
-            text-align: center;
-        }
-
-        .cta-box {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 60px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
+            color: var(--color-text);
             position: relative;
+            z-index: 1;
+        }
+
+        .feature-description {
+            color: var(--color-neutral);
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Luxury Product Showcase */
+        .showcase {
+            padding: 120px 20px;
+            background: var(--color-dark-secondary);
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .showcase-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+        }
+
+        .showcase-card {
+            background: var(--color-dark);
+            border: 1px solid var(--color-border);
+            border-radius: 25px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .showcase-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: var(--shadow-luxury);
+            border-color: var(--color-gold);
+        }
+
+        .showcase-image {
+            height: 250px;
+            background: var(--gradient-primary);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: rgba(255, 255, 255, 0.3);
             overflow: hidden;
         }
 
-        .cta-box::before {
+        .showcase-image::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 10px;
-            background: var(--gradient);
+            height: 100%;
+            background: var(--gradient-gold);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        /* Footer */
-        .colorful-footer {
-            background: var(--dark);
-            color: white;
-            padding: 80px 40px 30px;
+        .showcase-card:hover .showcase-image::before {
+            opacity: 0.2;
         }
 
-        .footer-grid {
-            max-width: 1400px;
+        .showcase-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gradient-gold);
+            color: var(--color-dark);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .showcase-content {
+            padding: 35px;
+        }
+
+        .showcase-category {
+            color: var(--color-accent);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .showcase-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .showcase-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: 15px;
+        }
+
+        .showcase-description {
+            color: var(--color-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .showcase-button {
+            background: transparent;
+            border: 1px solid var(--color-border);
+            color: var(--color-light);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .showcase-button:hover {
+            background: var(--gradient-accent);
+            color: var(--color-dark);
+            border-color: var(--color-accent);
+        }
+
+        /* Premium Stats */
+        .stats {
+            padding: 120px 20px;
+            position: relative;
+        }
+
+        .stats-container {
+            max-width: 1000px;
             margin: 0 auto;
+            text-align: center;
+        }
+
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 50px;
+            margin-top: 80px;
+        }
+
+        .stat-item {
+            background: var(--color-light);
+            border: 2px solid var(--color-border);
+            border-radius: var(--radius-large);
+            padding: 40px 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: var(--gradient-hero);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--color-primary);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(3, 125, 211, 0.2);
+        }
+
+        .stat-label {
+            color: var(--color-text);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Luxury Footer */
+        .footer {
+            background: var(--color-dark);
+            border-top: 1px solid var(--color-border);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 20px;
         }
 
-        .footer-title {
-            font-family: 'Fredoka One', cursive;
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: var(--accent);
+        .footer-text {
+            color: var(--color-gray);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
         }
 
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-            transition: var(--transition);
+        .footer-tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--color-accent);
+            font-weight: 600;
+            font-size: 1.2rem;
         }
 
-        .footer-links a:hover {
-            color: var(--accent);
-            transform: translateX(5px);
+        /* Developer Signature */
+        .dev-signature {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid var(--color-border);
+            color: var(--color-accent);
+            padding: 8px 15px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-family: 'Courier New', monospace;
+            z-index: 1000;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
         }
 
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        .dev-signature:hover {
+            opacity: 1;
         }
 
-        /* Responsive */
-        @media (max-width: 968px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 40px;
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--gradient-gold);
+            z-index: 1001;
+            transition: width 0.3s ease;
+        }
+
+        /* Animations */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
             }
-            
-            .hero-buttons {
-                justify-content: center;
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .features-grid,
+            .showcase-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             }
         }
 
         @media (max-width: 768px) {
-            .nav-colorful {
-                display: none;
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
             }
-            
-            .hero-title {
-                font-size: 3rem;
+
+            .nav-menu {
+                gap: 25px;
             }
-            
+
+            .hero {
+                padding: 80px 20px;
+            }
+
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
             }
+
+            .features,
+            .showcase,
+            .stats {
+                padding: 80px 20px;
+            }
+
+            .features-grid,
+            .showcase-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .feature-card,
+            .showcase-card {
+                padding: 30px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .back-button {
+                top: 10px;
+                left: 10px;
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+        }
+
+        /* Advanced Hover Effects */
+        .luxury-hover {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .luxury-hover::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 190, 0, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .luxury-hover:hover::after {
+            left: 100%;
+        }
+
+        /* Premium Loading Animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--color-dark);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-overlay.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .luxury-loader {
+            width: 60px;
+            height: 60px;
+            border: 3px solid var(--color-border);
+            border-top: 3px solid var(--color-accent);
+            border-radius: 50%;
+            animation: luxuryRotate 1s linear infinite;
+        }
+
+        @keyframes luxuryRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="luxury-loader"></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Background Elements -->
+    <div class="bg-pattern"></div>
+    <div class="luxury-orbs">
+        <div class="luxury-orb"></div>
+        <div class="luxury-orb"></div>
+        <div class="luxury-orb"></div>
+    </div>
+
     <!-- Proposals Navigation -->
     <div class="proposals-nav">
         <div class="proposals-container">
-            <a href="index.html" class="home-btn">
+            <a href="index.html" class="home-btn" title="Torna alla selezione">
                 <i class="fas fa-home"></i>
             </a>
             <span class="proposals-label">Proposte:</span>
@@ -473,121 +1143,433 @@
     </div>
 
     <!-- Header -->
-    <header class="colorful-header">
-        <div class="header-container">
-            <a href="#">
-                <img src="images_index/logo_index.jpg" alt="Punto Luce" class="logo-colorful">
-            </a>
-            <nav class="nav-colorful">
-                <a href="#home">Home</a>
-                <a href="#servizi">Servizi</a>
-                <a href="#prodotti">Prodotti</a>
-                <a href="#contatti">Contatti</a>
-                <a href="https://shop.puntoluce.net/">Shop</a>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="images_index/logo_index.jpg" alt="Punto Luce" class="logo">
+                <div class="brand-text">Condizionatori & Clima</div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#" class="nav-link">Condizionatori</a></li>
+                    <li><a href="#" class="nav-link">Termoidraulica</a></li>
+                    <li><a href="#" class="nav-link">Offerte</a></li>
+                    <li><a href="#" class="nav-link">Installazione</a></li>
+                </ul>
             </nav>
+            <a href="https://shop.puntoluce.net/" class="header-cta" target="_blank">
+                <i class="fas fa-snowflake"></i>
+                Offerte Estate
+            </a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="colorful-hero" id="home">
-        <div class="hero-bg"></div>
+    <section class="hero">
         <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">PUNTO LUCE</h1>
-                <p class="hero-subtitle">Dove il buio non è mai di casa</p>
-                <p class="hero-subtitle">
-                    Soluzioni elettriche ed elettroniche con design moderno e colorato 
-                    per professionisti e privati.
-                </p>
-                <div class="hero-buttons">
-                    <a href="https://shop.puntoluce.net/" class="colorful-btn primary-btn">
-                        <i class="fas fa-shopping-cart"></i> Negozio Online
-                    </a>
-                    <a href="#contatti" class="colorful-btn secondary-btn">
-                        <i class="fas fa-phone"></i> Contattaci
-                    </a>
-                </div>
+            <div class="hero-badge">
+                <i class="fas fa-snowflake"></i>
+                Pionieri Elettrico dal 1995 - Ora Leader Climatizzazione
             </div>
-            <div class="hero-image">
-                <img src="images_index/index1.jpg" alt="Punto Luce">
+            <h1 class="hero-title">
+                Condizionatori<br>
+                <span class="accent-text">Offerte Imperdibili</span>
+            </h1>
+            <p class="hero-subtitle">
+                Da 30 anni leader nel materiale elettrico, oggi lanciamo la nostra divisione 
+                climatizzazione con offerte esclusive su condizionatori di ultima generazione.
+            </p>
+            <div class="hero-buttons">
+                <a href="https://shop.puntoluce.net/" class="btn btn-primary" target="_blank">
+                    <i class="fas fa-fire"></i>
+                    Offerte Limitate
+                </a>
+                <a href="https://www.puntoluce.net/" class="btn btn-secondary" target="_blank">
+                    <i class="fas fa-calculator"></i>
+                    Calcola Risparmio
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="colorful-features" id="servizi">
-        <div class="section-header">
-            <p class="section-subtitle">PERCHÉ SCEGLIERCI</p>
-            <h2 class="section-title">I Nostri Servizi</h2>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-bolt"></i>
-                </div>
-                <h3 class="feature-title">Materiale Elettrico</h3>
-                <p>Componenti di alta qualità per impianti civili e industriali, con certificazioni di sicurezza.</p>
+    <section class="features">
+        <div class="features-container">
+            <div class="section-header scroll-reveal">
+                <div class="section-badge">Lancio Speciale</div>
+                <h2 class="section-title">Perché Scegliere i Nostri Climatizzatori</h2>
+                <p class="section-subtitle">
+                    30 anni di esperienza nel settore elettrico ora al servizio del comfort climatico. 
+                    Offerte di lancio irripetibili per celebrare il nostro ingresso nel mercato della climatizzazione.
+                </p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-shield-alt"></i>
+            <div class="features-grid">
+                <div class="feature-card scroll-reveal luxury-hover">
+                    <div class="feature-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3 class="feature-title">Efficienza A+++</h3>
+                    <p class="feature-description">
+                        Condizionatori di ultima generazione con tecnologia inverter avanzata. 
+                        Risparmio energetico fino al 70% e massimo comfort in ogni stagione.
+                    </p>
                 </div>
-                <h3 class="feature-title">Sistemi Antifurto</h3>
-                <p>Soluzioni integrate per la sicurezza della tua casa o azienda, con tecnologia avanzata.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-home"></i>
+                <div class="feature-card scroll-reveal luxury-hover">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="feature-title">Installazione Professionale</h3>
+                    <p class="feature-description">
+                        Team specializzato con 30 anni di esperienza in impianti elettrici. 
+                        Installazione rapida, certificata e con garanzia completa su lavoro e prodotto.
+                    </p>
                 </div>
-                <h3 class="feature-title">Domotica</h3>
-                <p>Automazione residenziale per comfort, sicurezza e risparmio energetico intelligente.</p>
+                <div class="feature-card scroll-reveal luxury-hover">
+                    <div class="feature-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3 class="feature-title">Offerte di Lancio</h3>
+                    <p class="feature-description">
+                        Prezzi speciali per celebrare il nostro ingresso nel settore climatizzazione. 
+                        Sconti fino al 40% + installazione gratuita per i primi 100 clienti.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="colorful-cta">
-        <div class="cta-box">
-            <h2 class="section-title">Pronto a illuminare la tua vita?</h2>
-            <p style="margin-bottom: 30px;">Scopri la nostra gamma completa di prodotti e servizi.</p>
-            <a href="https://shop.puntoluce.net/" class="colorful-btn primary-btn" style="margin-top: 20px;">
-                <i class="fas fa-rocket"></i> Inizia Ora
-            </a>
+    <!-- Luxury Showcase -->
+    <section class="showcase">
+        <div class="showcase-container">
+            <div class="section-header scroll-reveal">
+                <div class="section-badge">Offerte Esclusive</div>
+                <h2 class="section-title">Condizionatori in Promozione</h2>
+                <p class="section-subtitle">
+                    Selezione esclusiva di climatizzatori delle migliori marche a prezzi mai visti. 
+                    Offerte di lancio limitate nel tempo - Non perdere l'occasione!
+                </p>
+            </div>
+            <div class="showcase-grid">
+                <div class="showcase-card scroll-reveal">
+                    <div class="showcase-image">
+                        <i class="fas fa-snowflake"></i>
+                        <div class="showcase-badge">-40%</div>
+                    </div>
+                    <div class="showcase-content">
+                        <div class="showcase-category">Residenziale</div>
+                        <h3 class="showcase-title">Climatizzatore 12000 BTU</h3>
+                        <div class="showcase-price">€399,99 <span style="text-decoration: line-through; opacity: 0.6; font-size: 1rem; margin-left: 10px;">€699,99</span></div>
+                        <p class="showcase-description">
+                            Perfetto per ambienti fino a 40mq. Tecnologia inverter, classe A+++, 
+                            installazione inclusa nel prezzo. Garanzia 5 anni.
+                        </p>
+                        <a href="https://shop.puntoluce.net/" class="showcase-button" target="_blank">
+                            <i class="fas fa-cart-plus"></i>
+                            Acquista Ora
+                        </a>
+                    </div>
+                </div>
+                <div class="showcase-card scroll-reveal">
+                    <div class="showcase-image">
+                        <i class="fas fa-wind"></i>
+                        <div class="showcase-badge">-35%</div>
+                    </div>
+                    <div class="showcase-content">
+                        <div class="showcase-category">Commerciale</div>
+                        <h3 class="showcase-title">Dual Split 18000 BTU</h3>
+                        <div class="showcase-price">€899,99 <span style="text-decoration: line-through; opacity: 0.6; font-size: 1rem; margin-left: 10px;">€1.399,99</span></div>
+                        <p class="showcase-description">
+                            Sistema dual split per uffici e negozi. Due unità interne incluse, 
+                            controllo wifi, installazione professionale gratuita.
+                        </p>
+                        <a href="https://shop.puntoluce.net/" class="showcase-button" target="_blank">
+                            <i class="fas fa-cart-plus"></i>
+                            Acquista Ora
+                        </a>
+                    </div>
+                </div>
+                <div class="showcase-card scroll-reveal">
+                    <div class="showcase-image">
+                        <i class="fas fa-thermometer-half"></i>
+                        <div class="showcase-badge">TOP</div>
+                    </div>
+                    <div class="showcase-content">
+                        <div class="showcase-category">Premium</div>
+                        <h3 class="showcase-title">Multi Split 24000 BTU</h3>
+                        <div class="showcase-price">€1.299,99 <span style="text-decoration: line-through; opacity: 0.6; font-size: 1rem; margin-left: 10px;">€1.899,99</span></div>
+                        <p class="showcase-description">
+                            Sistema multi split per abitazioni grandi. Fino a 4 unità interne, 
+                            controllo zona per zona, massima efficienza energetica.
+                        </p>
+                        <a href="https://shop.puntoluce.net/" class="showcase-button" target="_blank">
+                            <i class="fas fa-cart-plus"></i>
+                            Acquista Ora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>Serie Platinum LED</h3>
+                        <div class="showcase-price">€299,99</div>
+                        <p class="showcase-description">
+                            Sistema di illuminazione modulare con tecnologia quantica e controllo 
+                            cromatico avanzato. Perfetto per ambienti di rappresentanza.
+                        </p>
+                        <a href="https://shop.puntoluce.net/" class="showcase-button" target="_blank">
+                            <i class="fas fa-eye"></i>
+                            Scopri Dettagli
+                        </a>
+                    </div>
+                </div>
+                <div class="showcase-card scroll-reveal">
+                    <div class="showcase-image">
+                        <i class="fas fa-sun"></i>
+                        <div class="showcase-badge">Limited</div>
+                    </div>
+                    <div class="showcase-content">
+                        <div class="showcase-category">Smart Lighting</div>
+                        <h3 class="showcase-title">Aurora Smart Panel</h3>
+                        <div class="showcase-price">€599,99</div>
+                        <p class="showcase-description">
+                            Pannello intelligente che simula la luce naturale con ritmi circadiani. 
+                            Controllo AI integrato per il benessere ambientale.
+                        </p>
+                        <a href="https://shop.puntoluce.net/" class="showcase-button" target="_blank">
+                            <i class="fas fa-eye"></i>
+                            Scopri Dettagli
+                        </a>
+                    </div>
+                </div>
+                <div class="showcase-card scroll-reveal">
+                    <div class="showcase-image">
+                        <i class="fas fa-magic"></i>
+                        <div class="showcase-badge">Premium</div>
+                    </div>
+                    <div class="showcase-content">
+                        <div class="showcase-category">Design Collection</div>
+                        <h3 class="showcase-title">Lumière d'Art</h3>
+                        <div class="showcase-price">€899,99</div>
+                        <p class="showcase-description">
+                            Opere d'arte luminose firmate da designer internazionali. 
+                            Ogni pezzo è numerato e accompagnato da certificato di autenticità.
+                        </p>
+                        <a href="https://shop.puntoluce.net/" class="showcase-button" target="_blank">
+                            <i class="fas fa-eye"></i>
+                            Scopri Dettagli
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Stats -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="section-header scroll-reveal">
+                <div class="section-badge">Lancio Climatizzazione</div>
+                <h2 class="section-title">I Numeri della Nostra Esperienza</h2>
+                <p class="section-subtitle">
+                    30 anni nel settore elettrico ci hanno insegnato l'importanza della qualità e dell'affidabilità. 
+                    Ora portiamo questa esperienza nel mondo della climatizzazione.
+                </p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item scroll-reveal">
+                    <div class="stat-number">30</div>
+                    <div class="stat-label">Anni Esperienza Elettrico</div>
+                </div>
+                <div class="stat-item scroll-reveal">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Installazioni Già Prenotate</div>
+                </div>
+                <div class="stat-item scroll-reveal">
+                    <div class="stat-number">-40%</div>
+                    <div class="stat-label">Sconto Massimo Lancio</div>
+                </div>
+                <div class="stat-item scroll-reveal">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Anni Garanzia Inclusa</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="colorful-footer">
-        <div class="footer-grid">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <img src="images_index/logo_index.jpg" alt="Punto Luce" style="height: 50px; filter: brightness(0) invert(1);">
-                </div>
-                <p style="margin-bottom: 20px;">Distributore specializzato in materiale elettrico ed elettronico di alta qualità.</p>
-                <p>© 2025 Punto Luce. Tutti i diritti riservati.</p>
-            </div>
-            <div class="footer-section">
-                <h3 class="footer-title">Link Veloci</h3>
-                <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#servizi">Servizi</a>
-                    <a href="#prodotti">Prodotti</a>
-                    <a href="#contatti">Contatti</a>
-                    <a href="https://shop.puntoluce.net/">Negozio Online</a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3 class="footer-title">Contatti</h3>
-                <div class="footer-links">
-                    <a href="tel:+390000000000">+39 000 000 0000</a>
-                    <a href="mailto:info@puntoluce.net">info@puntoluce.net</a>
-                    <a href="#">Via dell'Elettricità, 123 - Bologna</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>Punto Luce è un sito di WEB-E Srl - P.IVA 04108481203</p>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Punto Luce Climatizzazione</div>
+            <p class="footer-text">
+                Da pionieri del settore elettrico a leader nella climatizzazione. 
+                Qualità, esperienza e offerte imbattibili per il tuo comfort.
+            </p>
+            <p class="footer-tagline">"Dove il caldo non è più un problema"</p>
         </div>
     </footer>
+
+    <!-- Developer Signature -->
+    <div class="dev-signature">
+        Dark Luxury Theme v2.0
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Loading Screen
+            setTimeout(() => {
+                document.getElementById('loadingOverlay').classList.add('fade-out');
+            }, 1500);
+
+            // Scroll Progress Bar
+            function updateScrollProgress() {
+                const scrollTop = window.pageYOffset;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                document.getElementById('scrollProgress').style.width = scrollPercent + '%';
+            }
+
+            window.addEventListener('scroll', updateScrollProgress);
+
+            // Scroll Reveal Animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Premium Parallax Effect
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallaxElements = document.querySelectorAll('.luxury-orb');
+                
+                parallaxElements.forEach((element, index) => {
+                    const speed = 0.3 + (index * 0.1);
+                    element.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.05}deg)`;
+                });
+
+                // Pattern movement
+                const pattern = document.querySelector('.bg-pattern');
+                pattern.style.transform = `translate(${-scrolled * 0.1}px, ${-scrolled * 0.1}px)`;
+            });
+
+            // Luxury Card Interactions
+            document.querySelectorAll('.feature-card, .showcase-card, .stat-item').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 30;
+                    const rotateY = (centerX - x) / 30;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                });
+            });
+
+            // Advanced Cursor Effect
+            const cursor = document.createElement('div');
+            cursor.style.cssText = `
+                position: fixed;
+                width: 30px;
+                height: 30px;
+                background: radial-gradient(circle, rgba(212,175,55,0.3) 0%, transparent 70%);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                mix-blend-mode: difference;
+                transition: all 0.1s ease;
+            `;
+            document.body.appendChild(cursor);
+
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX - 15 + 'px';
+                cursor.style.top = e.clientY - 15 + 'px';
+            });
+
+            // Luxury Button Effects
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px) scale(1.05)';
+                });
+                
+                btn.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+            });
+
+            // Keyboard Navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    window.location.href = 'index.html';
+                }
+                const key = parseInt(e.key);
+                if (key >= 1 && key <= 5) {
+                    window.location.href = `proposal${key}.html`;
+                }
+            });
+
+            // Dynamic Glow Effects
+            setInterval(() => {
+                const elements = document.querySelectorAll('.feature-icon, .showcase-badge');
+                elements.forEach(el => {
+                    el.style.boxShadow = `0 0 ${Math.random() * 20 + 10}px rgba(255, 190, 0, ${Math.random() * 0.3 + 0.2})`;
+                });
+            }, 3000);
+
+            // Performance Monitoring
+            const perfObserver = new PerformanceObserver((list) => {
+                const entries = list.getEntries();
+                entries.forEach(entry => {
+                    if (entry.entryType === 'navigation') {
+                        console.log(`%c⚡ Page Load: ${entry.loadEventEnd.toFixed(2)}ms`, 'color: #d4af37;');
+                    }
+                });
+            });
+            
+            if ('PerformanceObserver' in window) {
+                perfObserver.observe({entryTypes: ['navigation']});
+            }
+
+            // Console Luxury Signature
+            console.log('%c✨ Punto Luce - Dark Luxury Experience', 'color: #d4af37; font-size: 18px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);');
+            console.log('%c🏆 Premium Web Development', 'color: #ffbe00; font-size: 14px;');
+            console.log('%c⚡ Optimized Performance & Luxury UX', 'color: #037dd3; font-size: 12px;');
+
+            // Advanced Error Handling
+            window.addEventListener('error', (e) => {
+                console.error('%cLuxury Error Handler:', 'color: #ff6b6b; font-weight: bold;', e.error);
+            });
+
+            // Reduce motion for accessibility
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelectorAll('.luxury-orb, .floating-element').forEach(el => {
+                    el.style.animation = 'none';
+                });
+            }
+        });
+
+        // Luxury Loading Performance
+        window.addEventListener('load', () => {
+            const loadTime = (performance.now() / 1000).toFixed(2);
+            console.log(`%c🚀 Luxury Experience Loaded in ${loadTime}s`, 'color: #d4af37; font-weight: bold;');
+        });
+    </script>
 </body>
 </html>
