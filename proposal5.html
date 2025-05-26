@@ -109,477 +109,6 @@
             text-align: center;
         }
 
-        .header-bar-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .contact-info {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .rating {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .stars {
-            color: var(--color-accent);
-        }
-
-        /* Main Navigation */
-        .main-nav {
-            background: white;
-            position: relative;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px 20px;
-        }
-
-        .logo {
-            height: 50px;
-            width: auto;
-        }
-
-        .search-container {
-            flex: 1;
-            max-width: 400px;
-            margin: 0 40px;
-            position: relative;
-        }
-
-        .search-box {
-            width: 100%;
-            padding: 12px 50px 12px 20px;
-            border: 2px solid #e0e0e0;
-            border-radius: 25px;
-            font-size: 16px;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-
-        .search-box:focus {
-            border-color: var(--color-primary);
-        }
-
-        .search-btn {
-            position: absolute;
-            right: 5px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--color-primary);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .nav-link {
-            color: var(--color-dark);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: var(--color-primary);
-        }
-
-        .cart-badge {
-            background: var(--color-accent);
-            color: var(--color-dark);
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: bold;
-            margin-left: 5px;
-        }
-
-        /* Secondary Navigation */
-        .secondary-nav {
-            background: #f8f9fa;
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .secondary-nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            padding: 0 20px;
-        }
-
-        .nav-item {
-            padding: 15px 20px;
-            color: var(--color-dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-item:hover {
-            background: white;
-            color: var(--color-primary);
-        }
-
-        /* Hero Banner Section - ORIGINALE FUNZIONANTE */
-        .hero-banner {
-            max-width: 1400px;
-            margin: 30px auto;
-            padding: 0 20px;
-            position: relative;
-        }
-
-        /* Carousel per il banner orizzontale */
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            height: 300px;
-            overflow: hidden;
-            border-radius: var(--radius-large);
-            box-shadow: var(--shadow);
-        }
-
-        .carousel-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .carousel-slide.active {
-            opacity: 1;
-        }
-
-        .carousel-slide-1 {
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300"><defs><linearGradient id="slide1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:%23037dd3;stop-opacity:1" /><stop offset="100%" style="stop-color:%23254575;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(%23slide1)"/><text x="400" y="130" text-anchor="middle" font-size="32" fill="white" font-family="Arial" font-weight="bold">HAI BISOGNO DI AIUTO?</text><text x="400" y="170" text-anchor="middle" font-size="18" fill="%23ffbe00" font-family="Arial">TI ASSISTIAMO IN OGNI FASE DELL\'ACQUISTO!</text></svg>');
-        }
-
-        .carousel-slide-2 {
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300"><defs><linearGradient id="slide2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:%23ffbe00;stop-opacity:1" /><stop offset="100%" style="stop-color:%23ff8f00;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(%23slide2)"/><text x="400" y="130" text-anchor="middle" font-size="32" fill="white" font-family="Arial" font-weight="bold">SPEDIZIONE GRATUITA</text><text x="400" y="170" text-anchor="middle" font-size="18" fill="%23e65100" font-family="Arial">Per ordini superiori a 50€</text></svg>');
-        }
-
-        .carousel-slide-3 {
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300"><defs><linearGradient id="slide3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:%234caf50;stop-opacity:1" /><stop offset="100%" style="stop-color:%23388e3c;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(%23slide3)"/><text x="400" y="130" text-anchor="middle" font-size="32" fill="white" font-family="Arial" font-weight="bold">PAGAMENTI SICURI</text><text x="400" y="170" text-anchor="middle" font-size="18" fill="%23c8e6c9" font-family="Arial">PayPal, Carte di Credito, Bonifico</text></svg>');
-        }
-
-        /* Indicatori carousel */
-        .carousel-indicators {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 4;
-        }
-
-        .carousel-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .carousel-indicator.active {
-            background: white;
-            transform: scale(1.3);
-        }
-
-        /* Frecce navigazione */
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,0,0,0.3);
-            border: none;
-            color: white;
-            font-size: 24px;
-            padding: 12px 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 4;
-            border-radius: 50%;
-        }
-
-        .carousel-nav:hover {
-            background: rgba(0,0,0,0.5);
-        }
-
-        .carousel-prev {
-            left: 15px;
-        }
-
-        .carousel-next {
-            right: 15px;
-        }
-
-        /* High Section - Banner Cards */
-        .high-section {
-            max-width: 1400px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr 2fr;
-            gap: 20px;
-        }
-
-        .high-section-box {
-            position: relative;
-            overflow: hidden;
-            border-radius: var(--radius-large);
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            min-height: 250px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .high-section-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .high-section-box:nth-child(1) {
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23e3f2fd;stop-opacity:1" /><stop offset="100%" style="stop-color:%23bbdefb;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(%23grad1)"/><circle cx="200" cy="125" r="50" fill="%23037dd3" opacity="0.3"/><text x="200" y="140" text-anchor="middle" font-size="18" fill="%23037dd3" font-family="Arial" font-weight="bold">Condizionatori</text></svg>');
-        }
-
-        .high-section-box:nth-child(2) {
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250"><defs><linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23fff3e0;stop-opacity:1" /><stop offset="100%" style="stop-color:%23ffe0b2;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(%23grad2)"/><polygon points="200,75 220,115 180,115" fill="%23ffbe00" opacity="0.6"/><circle cx="200" cy="140" r="12" fill="%23ff8f00"/><text x="200" y="190" text-anchor="middle" font-size="18" fill="%23e65100" font-family="Arial" font-weight="bold">Poldina Zafferano</text></svg>');
-        }
-
-        .high-section-box:nth-child(3) {
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250"><defs><linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23e8f5e8;stop-opacity:1" /><stop offset="100%" style="stop-color:%23c8e6c9;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(%23grad3)"/><rect x="350" y="100" width="100" height="50" rx="25" fill="%234caf50" opacity="0.4"/><circle cx="400" cy="125" r="15" fill="%23388e3c"/><text x="400" y="190" text-anchor="middle" font-size="18" fill="%232e7d32" font-family="Arial" font-weight="bold">Rilevatori Gas e Monossido</text></svg>');
-        }
-
-        .high-section-box a {
-            display: block;
-            width: 100%;
-            height: 100%;
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* Products Section */
-        .products-section {
-            background-color: var(--color-gray);
-            padding: 60px 0;
-        }
-
-        .products-title {
-            text-align: center;
-            color: var(--color-primary);
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 40px;
-        }
-
-        /* Product Card Styles */
-        .product-card {
-            background-color: var(--color-white);
-            border-radius: var(--radius);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            overflow: hidden;
-            position: relative;
-            width: 220px;
-            margin: 0 10px;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: var(--color-accent);
-            color: var(--color-dark);
-            padding: 4px 8px;
-            border-radius: var(--radius);
-            font-size: 12px;
-            font-weight: 700;
-            z-index: 2;
-        }
-
-        .product-badge--new {
-            background-color: var(--color-primary);
-            color: white;
-        }
-
-        .product-badge--sale {
-            background-color: var(--color-danger);
-            color: white;
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-        }
-
-        .product-info {
-            padding: 15px;
-        }
-
-        .product-info h3 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--color-text);
-        }
-
-        .product-info .price {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--color-primary);
-        }<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposta 3 - Professional | Punto Luce</title>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Georgia:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
-    <!-- Splide CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/splide/4.1.4/css/splide.min.css" rel="stylesheet">
-    
-    <style>
-        :root {
-            --color-primary: #037dd3;
-            --color-accent: #ffbe00;
-            --color-dark: #1F1F2E;
-            --color-text: #414151;
-            --color-border: #B9B9C8;
-            --color-white: #ffffff;
-            --color-gray: #f7f7f7;
-            --color-neutral: #525252;
-            --color-success: #059669;
-            --color-danger: #e11d48;
-            --shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            --radius: 8px;
-            --radius-large: 12px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--color-white);
-            color: var(--color-dark);
-            line-height: 1.6;
-        }
-
-        .material-symbols-outlined {
-            font-family: 'Material Symbols Outlined';
-            font-weight: normal;
-            font-style: normal;
-            font-size: 24px;
-            line-height: 1;
-            letter-spacing: normal;
-            text-transform: none;
-            display: inline-block;
-            white-space: nowrap;
-            word-wrap: normal;
-            direction: ltr;
-        }
-
-        /* Back button */
-        .back-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: none;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-weight: 600;
-            color: var(--color-dark);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow);
-        }
-
-        .back-button:hover {
-            background: white;
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-        }
-
-        /* Header Styles */
-        .header {
-            background-color: var(--color-white);
-            position: sticky;
-            z-index: 25;
-            top: 0;
-            left: 0;
-            width: 100%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .header-bar {
-            background-color: var(--color-primary);
-            color: white;
-            padding: 8px 0;
-            font-size: 14px;
-            text-align: center;
-        }
-
         /* Header Bar - 3 sezioni */
         .header-bar-content {
             display: grid;
@@ -1270,6 +799,185 @@
             }
         }
 
+
+        /* Proposals Navigation */
+.proposals-nav {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-large);
+    padding: 15px 20px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.proposals-nav:hover {
+    background: rgba(255, 255, 255, 0.98);
+    transform: scale(1.02);
+}
+
+.proposals-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+/* Home Button */
+.home-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1.1rem;
+    box-shadow: 0 3px 10px rgba(3, 125, 211, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.home-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: var(--color-accent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.home-btn:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.home-btn:hover {
+    transform: scale(1.1) rotate(-10deg);
+    box-shadow: 0 5px 20px rgba(255, 190, 0, 0.4);
+}
+
+.home-btn:hover i {
+    position: relative;
+    z-index: 1;
+    color: var(--color-dark);
+}
+
+/* Divider */
+.proposals-container::after {
+    content: '';
+    position: absolute;
+    left: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 25px;
+    width: 1px;
+    background: var(--color-border);
+}
+
+.proposals-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    white-space: nowrap;
+}
+
+.proposals-links {
+    display: flex;
+    gap: 8px;
+}
+
+.proposal-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+}
+
+.proposal-link:not(.active) {
+    background: var(--color-gray);
+    color: var(--color-neutral);
+    border-color: var(--color-border);
+}
+
+.proposal-link:not(.active):hover {
+    background: var(--color-accent);
+    color: var(--color-dark);
+    border-color: var(--color-accent);
+    transform: scale(1.1);
+}
+
+.proposal-link.active {
+    background: linear-gradient(135deg, var(--color-primary), #0056b3);
+    color: white;
+    border-color: var(--color-accent);
+    box-shadow: 0 5px 15px rgba(3, 125, 211, 0.3);
+    transform: scale(1.1);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .proposals-nav {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        padding: 12px 15px;
+    }
+
+    .proposals-container {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .proposals-label {
+        font-size: 0.8rem;
+    }
+
+    .proposal-link,
+    .home-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+
+    .home-btn {
+        font-size: 0.9rem;
+    }
+
+    .proposals-container::after {
+        left: 50px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .proposals-label {
+        display: none;
+    }
+    
+    .proposals-container::after {
+        display: none;
+    }
+}
+
         @media (max-width: 768px) {
             .header-bar-content {
                 flex-direction: column;
@@ -1334,12 +1042,22 @@
     </style>
 </head>
 <body>
-    <!-- Back Button -->
-    <a href="index.html" class="back-button">
-        <i class="fas fa-arrow-left"></i>
-        Torna alle Proposte
-    </a>
-
+<!-- Proposals Navigation -->
+<div class="proposals-nav">
+    <div class="proposals-container">
+        <a href="index.html" class="home-btn" title="Torna alla selezione">
+            <i class="fas fa-home"></i>
+        </a>
+        <span class="proposals-label">Proposte:</span>
+        <nav class="proposals-links">
+            <a href="proposal1.html" class="proposal-link">1</a>
+            <a href="proposal2.html" class="proposal-link">2</a>
+            <a href="proposal3.html" class="proposal-link">3</a>
+            <a href="proposal4.html" class="proposal-link">4</a>
+            <a href="proposal5.html" class="proposal-link active">5</a>
+        </nav>
+    </div>
+</div>
     <!-- Header -->
     <header class="header">
         <!-- Top Bar CON 3 SEZIONI -->
@@ -1946,6 +1664,20 @@
             goHome: () => window.location.href = 'index.html',
             goToProposal: (num) => window.location.href = `proposal${num}.html`
         };
+
+        // Keyboard navigation con supporto per tornare all'index
+document.addEventListener('keydown', (e) => {
+    // Torna all'index con ESC o H
+    if (e.key === 'Escape' || e.key === 'h' || e.key === 'H') {
+        window.location.href = 'index.html';
+    }
+    
+    // Navigazione numerica tra le proposte
+    const key = parseInt(e.key);
+    if (key >= 1 && key <= 5) {
+        window.location.href = `proposal${key}.html`;
+    }
+});
     </script>
 </body>
 </html>
